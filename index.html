@@ -40,7 +40,7 @@
     }
   </script>
 
-  <!-- Critical Styles -->
+  <!-- Critical Inline Styles -->
   <style>
     body {
       background-color: #f8fafc !important;
@@ -81,16 +81,16 @@
     }
   </style>
 
-  <link rel="stylesheet" href="assets/css/style.css?v=4.0">
+  <link rel="stylesheet" href="assets/css/style.css?v=5.0">
 </head>
 
 <body class="bg-[#f8fafc] text-slate-800 font-sans antialiased min-h-screen flex flex-col">
 
   <!-- ========================================================================= -->
-  <!-- HEADER BANNER: HIỂN THỊ ĐẦY ĐỦ 100% KHÔNG BỊ CẮT XÉN -->
+  <!-- HEADER BANNER: HIỂN THỊ ĐẦY ĐỦ 100% TOÀN CẢNH KHÔNG BỊ CẮT XÉN -->
   <!-- ========================================================================= -->
   <header class="w-full text-white shadow-xs">
-    <!-- Banner Container: Tự động co giãn theo tỷ lệ ảnh gốc, không giới hạn chiều cao -->
+    <!-- Banner Container: Tự động co giãn theo tỷ lệ ảnh 3:1, không bị crop bất kỳ góc nào -->
     <div class="w-full bg-[#f8fafc] overflow-hidden flex items-center justify-center border-b border-red-200">
       <img 
         id="main-school-banner" 
@@ -99,7 +99,7 @@
         class="w-full h-auto block select-none shadow-xs">
     </div>
 
-    <!-- Thanh Slogan Nền Đỏ: Khơi Dậy Tinh Thần Ứng Dụng Công Nghệ & STEM -->
+    <!-- Thanh Slogan Nền Đỏ: Khơi Dậy Tinh Thần Ứng Dụng Công Nghệ & AI -->
     <div class="school-nav-gradient py-2.5 px-4 sm:px-6 lg:px-8 border-b border-red-800 shadow-md">
       <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left">
         <div class="flex items-center gap-2 text-xs sm:text-sm font-extrabold uppercase tracking-wide text-white drop-shadow-sm">
@@ -123,8 +123,8 @@
           <span class="text-slate-600">Cổng tra cứu công cụ &amp; kho học liệu số - Thầy Hoàng Ngọc Tuyên</span>
         </div>
 
-        <div class="flex items-center gap-1.5 w-full sm:w-auto">
-          <div class="relative flex-1 sm:w-72">
+        <div class="flex items-center gap-2 w-full sm:w-auto">
+          <div class="relative flex-1 sm:w-64">
             <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-2.5 top-1/2 -translate-y-1/2"></i>
             <input 
               id="top-search-input" 
@@ -132,7 +132,7 @@
               placeholder="Tìm kiếm công cụ, mã nguồn..." 
               class="w-full pl-8 pr-3 py-1.5 rounded-lg border border-slate-300 text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600 transition-all bg-white">
           </div>
-          <button onclick="document.getElementById('top-search-input').focus()" class="px-3.5 py-1.5 rounded-lg bg-red-600 hover:bg-red-700 text-white font-bold text-xs transition-colors shrink-0 shadow-xs">
+          <button onclick="document.getElementById('top-search-input').focus()" class="px-3 py-1.5 rounded-lg bg-red-600 hover:bg-red-700 text-white font-bold text-xs transition-colors shrink-0 shadow-xs">
             Tìm
           </button>
         </div>
@@ -151,13 +151,13 @@
       <!-- ===================================================================== -->
       <aside class="lg:col-span-4 space-y-4">
 
-        <!-- Thẻ Thông tin tác giả -->
-        <div class="portal-card bg-white p-4 space-y-3.5 rounded-xl border border-slate-200 shadow-sm">
+        <!-- Thẻ Thông tin tác giả & Đa kênh kết nối (Zalo, FB, YT, TikTok, Phone) -->
+        <div class="portal-card bg-white p-4 space-y-3 rounded-xl border border-slate-200 shadow-sm">
           <div class="section-header">
             <span class="section-title">Thông tin tác giả</span>
           </div>
 
-          <div class="flex flex-col items-center text-center space-y-2.5">
+          <div class="flex flex-col items-center text-center space-y-2">
             <div class="w-20 h-20 rounded-full p-1 bg-red-50 border-2 border-red-600 shadow-sm relative">
               <img id="profile-avatar" src="assets/images/teacher-avatar.svg" alt="Avatar Giáo Viên" class="w-full h-full rounded-full object-cover">
               <span class="absolute bottom-0 right-0 w-4 h-4 bg-emerald-500 border-2 border-white rounded-full" title="Trạng thái: Đang hoạt động"></span>
@@ -179,22 +179,39 @@
               Chào mừng quý thầy cô, phụ huynh và các em học sinh! Trang thông tin tổng hợp các giải pháp công nghệ giáo dục, các lớp đào tạo kỹ năng số và kho học liệu STEM thực hành.
             </p>
 
-            <!-- Social / Contacts -->
-            <div class="w-full pt-2 border-t border-slate-100 flex items-center justify-center gap-2">
-              <a id="link-zalo" href="#" target="_blank" class="p-2 rounded-lg bg-sky-50 text-sky-700 hover:bg-sky-100 transition-colors border border-sky-100" title="Nhắn tin Zalo">
-                <i data-lucide="message-circle" class="w-4 h-4"></i>
-              </a>
-              <a id="link-facebook" href="#" target="_blank" class="p-2 rounded-lg bg-blue-50 text-blue-700 hover:bg-blue-100 transition-colors border border-blue-100" title="Facebook cá nhân">
-                <i data-lucide="facebook" class="w-4 h-4"></i>
-              </a>
-              <a id="link-github" href="#" target="_blank" class="p-2 rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200 transition-colors border border-slate-200" title="Kho mã nguồn GitHub">
-                <i data-lucide="github" class="w-4 h-4"></i>
-              </a>
-              <a id="link-email" href="#" class="p-2 rounded-lg bg-red-50 text-red-700 hover:bg-red-100 transition-colors border border-red-100" title="Gửi thư điện tử">
-                <i data-lucide="mail" class="w-4 h-4"></i>
-              </a>
-              <a id="link-school" href="http://c3eahleo.daklak.edu.vn" target="_blank" class="p-2 rounded-lg bg-amber-50 text-amber-800 hover:bg-amber-100 transition-colors border border-amber-100" title="Cổng trường THPT Ea H'leo">
-                <i data-lucide="globe" class="w-4 h-4"></i>
+            <!-- Khối kết nối đa kênh (Zalo, Facebook, YouTube, TikTok, Phone) -->
+            <div class="w-full pt-2 border-t border-slate-100 space-y-2">
+              <p class="text-[11px] font-bold text-slate-700 uppercase tracking-wide">Kết nối nhanh với Thầy Tuyên:</p>
+              <div class="grid grid-cols-4 gap-1.5">
+                <!-- Zalo -->
+                <a id="link-zalo" href="#" target="_blank" class="py-2 px-1 rounded-lg bg-[#0068ff]/10 text-[#0068ff] hover:bg-[#0068ff] hover:text-white transition-all flex flex-col items-center gap-1 border border-[#0068ff]/20 group" title="Nhắn tin qua Zalo">
+                  <i data-lucide="message-circle" class="w-4 h-4"></i>
+                  <span class="text-[10px] font-bold">Zalo</span>
+                </a>
+
+                <!-- Facebook -->
+                <a id="link-facebook" href="#" target="_blank" class="py-2 px-1 rounded-lg bg-[#1877f2]/10 text-[#1877f2] hover:bg-[#1877f2] hover:text-white transition-all flex flex-col items-center gap-1 border border-[#1877f2]/20 group" title="Facebook">
+                  <i data-lucide="facebook" class="w-4 h-4"></i>
+                  <span class="text-[10px] font-bold">Facebook</span>
+                </a>
+
+                <!-- YouTube -->
+                <a id="link-youtube" href="#" target="_blank" class="py-2 px-1 rounded-lg bg-[#ff0000]/10 text-[#ff0000] hover:bg-[#ff0000] hover:text-white transition-all flex flex-col items-center gap-1 border border-[#ff0000]/20 group" title="Kênh YouTube bài giảng">
+                  <i data-lucide="youtube" class="w-4 h-4"></i>
+                  <span class="text-[10px] font-bold">YouTube</span>
+                </a>
+
+                <!-- TikTok -->
+                <a id="link-tiktok" href="#" target="_blank" class="py-2 px-1 rounded-lg bg-slate-900/10 text-slate-900 hover:bg-slate-900 hover:text-white transition-all flex flex-col items-center gap-1 border border-slate-300 group" title="Kênh TikTok STEM">
+                  <i data-lucide="video" class="w-4 h-4"></i>
+                  <span class="text-[10px] font-bold">TikTok</span>
+                </a>
+              </div>
+
+              <!-- Hotline Call -->
+              <a id="link-phone" href="#" class="w-full py-2 px-3 rounded-lg bg-emerald-50 text-emerald-800 hover:bg-emerald-100 border border-emerald-200 text-xs font-bold flex items-center justify-center gap-2 transition-colors">
+                <i data-lucide="phone-call" class="w-3.5 h-3.5 text-emerald-600"></i>
+                <span>Hotline: 0912.345.xxx (Bấm gọi ngay)</span>
               </a>
             </div>
           </div>
@@ -213,6 +230,16 @@
           </div>
         </div>
 
+        <!-- Nút mở Bảng Quản Trị Admin -->
+        <div class="pt-2">
+          <button 
+            onclick="openAdminLogin()" 
+            class="w-full py-2.5 px-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-300 text-xs font-bold flex items-center justify-center gap-2 transition-all shadow-xs">
+            <i data-lucide="settings" class="w-4 h-4 text-red-600"></i>
+            <span>Bảng Quản Trị: Thêm Công Cụ &amp; Lớp Học</span>
+          </button>
+        </div>
+
       </aside>
 
       <!-- ===================================================================== -->
@@ -220,26 +247,16 @@
       <!-- ===================================================================== -->
       <section class="lg:col-span-8 space-y-6">
 
-        <!-- NHÓM TRÊN: CÁC CÔNG CỤ ĐÃ TRIỂN KHAI (ĐI THẲNG VÀO GIỚI THIỆU) -->
-        <div class="space-y-3.5">
-          <!-- Filter bar -->
-          <div class="portal-card bg-white p-3 rounded-xl border border-slate-200 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-2.5">
-            <div class="section-title">
-              <span>Hệ thống chuyển đổi số đã xây dựng</span>
-            </div>
-            <div id="category-filter-nav" class="flex flex-wrap gap-1.5">
-              <!-- Dynamically populated -->
-            </div>
-          </div>
-
+        <!-- NHÓM TRÊN: CÁC CÔNG CỤ ĐÃ TRIỂN KHAI (ĐI THẲNG VÀO LƯỚI CÔNG CỤ) -->
+        <div class="space-y-3">
           <!-- Systems Grid (2 Columns, Big Thumbnails, Bullet Features, 2 Buttons) -->
           <div id="systems-container" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <!-- Dynamically populated from data.js -->
           </div>
         </div>
 
-        <!-- NHÓM DƯỚI: KHO HỌC LIỆU SỐ VỚI CÁC DỰ ÁN DẠNG MODULE -->
-        <div class="space-y-3.5 pt-4 border-t border-slate-200">
+        <!-- NHÓM DƯỚI: KHO HỌC LIỆU SỐ VỚI CÁC DỰ ÁN DẠNG MODULE (CÓ HÌNH ẢNH TO ĐẸP) -->
+        <div class="space-y-3 pt-3 border-t border-slate-200">
           <div class="section-header">
             <span class="section-title">Kho học liệu số &amp; Dự án STEM thực hành</span>
             <span class="text-xs font-bold text-sky-700 bg-sky-50 px-2.5 py-0.5 rounded border border-sky-200">
@@ -247,11 +264,7 @@
             </span>
           </div>
 
-          <p class="text-xs text-slate-600 bg-sky-50/70 p-3 rounded-xl border border-sky-100 leading-relaxed">
-            Học sinh các lớp Lập trình, Tin học ứng dụng &amp; STEM Robotics có thể trực tiếp tham khảo sơ đồ đấu nối chân linh kiện, xem mã nguồn chuẩn có chú thích chi tiết và sao chép về nạp vào board Arduino/ESP32.
-          </p>
-
-          <!-- Module Projects Grid -->
+          <!-- Module Projects Grid with Big Illustrations -->
           <div id="student-library-container" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <!-- Dynamically populated from data.js -->
           </div>
@@ -277,19 +290,207 @@
         </div>
       </div>
 
-      <div class="text-center md:text-right space-y-0.5">
-        <p class="text-slate-700 font-medium">Hệ thống triển khai trên nền tảng GitHub Pages</p>
-        <p class="text-[11px] text-slate-500">Bản quyền thuộc về Trường THPT Ea H'leo, Đắk Lắk</p>
+      <div class="flex items-center gap-3">
+        <button onclick="openAdminLogin()" class="text-[11px] text-slate-500 hover:text-red-600 flex items-center gap-1 font-medium">
+          <i data-lucide="key" class="w-3.5 h-3.5"></i>
+          <span>Khu vực Quản trị</span>
+        </button>
+        <span class="text-slate-300">|</span>
+        <p class="text-[11px] text-slate-500">Bản quyền © 2026 THPT Ea H'leo</p>
       </div>
     </div>
   </footer>
 
   <!-- ========================================================================= -->
-  <!-- MODAL: ĐĂNG KÝ SỬ DỤNG CÔNG CỤ / LỚP HỌC -->
+  <!-- MODAL: BẢNG QUẢN TRỊ ADMIN (THÊM CÔNG CỤ / LỚP HỌC / HỌC LIỆU & XUẤT FILE DATA.JS) -->
   <!-- ========================================================================= -->
-  <div id="register-tool-modal" class="hidden fixed inset-0 z-50 modal-overlay items-center justify-center p-3 sm:p-4 overflow-y-auto">
-    <div id="register-modal-content" class="bg-white rounded-xl max-w-xl w-full border border-slate-300 overflow-hidden shadow-2xl modal-enter">
-      <!-- Injected by app.js -->
+  <div id="admin-modal" class="hidden fixed inset-0 z-50 modal-overlay items-center justify-center p-3 sm:p-4 overflow-y-auto">
+    <div class="bg-white rounded-xl max-w-2xl w-full border border-slate-300 overflow-hidden shadow-2xl modal-enter flex flex-col">
+      <!-- Admin Header -->
+      <div class="p-4 bg-slate-900 text-white flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+          <i data-lucide="shield" class="w-5 h-5 text-yellow-400"></i>
+          <div>
+            <h3 class="font-bold text-base text-white">Bảng Quản Trị Website • Thầy Hoàng Ngọc Tuyên</h3>
+            <p class="text-[11px] text-slate-400">Thêm nhanh công cụ, lớp học và xuất file data.js cập nhật lên GitHub</p>
+          </div>
+        </div>
+        <button onclick="closeModal('admin-modal')" class="p-1 text-slate-400 hover:text-white rounded-lg">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Admin Tabs Navigation -->
+      <div class="p-3 bg-slate-100 border-b border-slate-200 flex items-center gap-2 overflow-x-auto">
+        <button id="btn-tab-add-system" onclick="switchAdminTab('tab-add-system')" class="px-4 py-2 rounded-lg bg-red-600 text-white font-bold text-xs shadow-xs whitespace-nowrap">
+          + Thêm Công Cụ
+        </button>
+        <button id="btn-tab-add-class" onclick="switchAdminTab('tab-add-class')" class="px-4 py-2 rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200 font-semibold text-xs whitespace-nowrap">
+          + Thêm Lớp Học
+        </button>
+        <button id="btn-tab-add-library" onclick="switchAdminTab('tab-add-library')" class="px-4 py-2 rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200 font-semibold text-xs whitespace-nowrap">
+          + Thêm Học Liệu
+        </button>
+        <button id="btn-tab-change-pin" onclick="switchAdminTab('tab-change-pin')" class="px-4 py-2 rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200 font-semibold text-xs whitespace-nowrap flex items-center gap-1.5">
+          <i data-lucide="lock" class="w-3.5 h-3.5"></i>
+          <span>Đổi Mật Khẩu Admin</span>
+        </button>
+      </div>
+
+      <!-- Admin Tab 1: Thêm Công Cụ Mới -->
+      <form id="tab-add-system" onsubmit="submitNewSystem(event)" class="p-4 sm:p-5 space-y-3 text-xs max-h-[65vh] overflow-y-auto">
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Tên công cụ:</label>
+          <input id="admin-sys-title" type="text" placeholder="Ví dụ: Trợ Lý Quản Lý Thiết Bị Dạy Học" required class="w-full p-2 border border-slate-300 rounded-lg text-xs">
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Huy hiệu (Badge):</label>
+            <input id="admin-sys-badge" type="text" placeholder="Ví dụ: Mới / Vận hành" class="w-full p-2 border border-slate-300 rounded-lg text-xs">
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Đường dẫn ảnh minh họa:</label>
+            <input id="admin-sys-image" type="text" placeholder="assets/images/dashboard-school.png" class="w-full p-2 border border-slate-300 rounded-lg text-xs">
+          </div>
+        </div>
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Các tính năng chính (Mỗi dòng 1 tính năng):</label>
+          <textarea id="admin-sys-features" rows="3" placeholder="Tự động quản lý danh sách mượn trả thiết bị&#10;Xuất báo cáo cuối kỳ 1-click&#10;Tương thích di động" class="w-full p-2 border border-slate-300 rounded-lg text-xs"></textarea>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Link trải nghiệm Web App:</label>
+            <input id="admin-sys-demo" type="url" placeholder="https://script.google.com/..." class="w-full p-2 border border-slate-300 rounded-lg text-xs">
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Link đăng ký sử dụng (Zalo/Form):</label>
+            <input id="admin-sys-reg" type="url" placeholder="https://zalo.me" class="w-full p-2 border border-slate-300 rounded-lg text-xs">
+          </div>
+        </div>
+        <button type="submit" class="w-full py-2.5 bg-red-600 hover:bg-red-700 text-white font-bold rounded-lg text-xs shadow-xs">
+          Lưu &amp; Hiển Thị Thử Công Cụ Này
+        </button>
+      </form>
+
+      <!-- Admin Tab 2: Thêm Lớp Học Mới -->
+      <form id="tab-add-class" onsubmit="submitNewClass(event)" class="hidden p-4 sm:p-5 space-y-3 text-xs max-h-[65vh] overflow-y-auto">
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Tên khóa học:</label>
+          <input id="admin-cls-title" type="text" placeholder="Ví dụ: Lớp Lập Trình Game Scratch Cho Học Sinh" required class="w-full p-2 border border-slate-300 rounded-lg text-xs">
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Đối tượng học sinh:</label>
+            <input id="admin-cls-target" type="text" placeholder="Học sinh lớp 6 - 9" class="w-full p-2 border border-slate-300 rounded-lg text-xs">
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Lịch học dự kiến:</label>
+            <input id="admin-cls-schedule" type="text" placeholder="Sáng Thứ 7 hàng tuần" class="w-full p-2 border border-slate-300 rounded-lg text-xs">
+          </div>
+        </div>
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Đường dẫn ảnh minh họa:</label>
+          <input id="admin-cls-image" type="text" placeholder="assets/images/class-digital-skills.png" class="w-full p-2 border border-slate-300 rounded-lg text-xs">
+        </div>
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Nội dung nổi bật (Mỗi dòng 1 ý):</label>
+          <textarea id="admin-cls-highlights" rows="3" placeholder="Tự tạo game 2D sáng tạo&#10;Phát triển tư duy logic toán học" class="w-full p-2 border border-slate-300 rounded-lg text-xs"></textarea>
+        </div>
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Link đăng ký (Zalo/Google Form):</label>
+          <input id="admin-cls-reg" type="url" placeholder="https://zalo.me" class="w-full p-2 border border-slate-300 rounded-lg text-xs">
+        </div>
+        <button type="submit" class="w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-lg text-xs shadow-xs">
+          Lưu &amp; Hiển Thị Thử Lớp Học Này
+        </button>
+      </form>
+
+      <!-- Admin Tab 3: Thêm Học Liệu Mới -->
+      <form id="tab-add-library" onsubmit="submitNewLibrary(event)" class="hidden p-4 sm:p-5 space-y-3 text-xs max-h-[65vh] overflow-y-auto">
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Tên dự án / Bài học:</label>
+          <input id="admin-lib-title" type="text" placeholder="Ví dụ: Dự Án Xe Dò Line Tự Hành 2 Bánh" required class="w-full p-2 border border-slate-300 rounded-lg text-xs">
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Tên Module phân loại:</label>
+            <input id="admin-lib-cat" type="text" placeholder="Module 5: Robotics" class="w-full p-2 border border-slate-300 rounded-lg text-xs">
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Ngôn ngữ / Board:</label>
+            <input id="admin-lib-badge" type="text" placeholder="Arduino C++" class="w-full p-2 border border-slate-300 rounded-lg text-xs">
+          </div>
+        </div>
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Đường dẫn ảnh minh họa:</label>
+          <input id="admin-lib-image" type="text" placeholder="assets/images/lib-traffic-light.svg" class="w-full p-2 border border-slate-300 rounded-lg text-xs">
+        </div>
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Mô tả ngắn gọn:</label>
+          <input id="admin-lib-desc" type="text" placeholder="Xe tự động bám theo vạch đen sử dụng 2 cảm biến hồng ngoại TCRT5000." class="w-full p-2 border border-slate-300 rounded-lg text-xs">
+        </div>
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Hướng dẫn nối chân linh kiện:</label>
+          <input id="admin-lib-wiring" type="text" placeholder="Sensor Trái -> D2, Phải -> D3, Motor A -> D5/D6" class="w-full p-2 border border-slate-300 rounded-lg text-xs">
+        </div>
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Mã nguồn mẫu:</label>
+          <textarea id="admin-lib-code" rows="4" placeholder="// Dán mã nguồn C++ hoặc Python vào đây" class="w-full p-2 border border-slate-300 rounded-lg font-mono text-[11px]"></textarea>
+        </div>
+        <button type="submit" class="w-full py-2.5 bg-sky-600 hover:bg-sky-700 text-white font-bold rounded-lg text-xs shadow-xs">
+          Lưu &amp; Hiển Thị Thử Dự Án Này
+        </button>
+      </form>
+
+      <!-- Admin Tab 4: Đổi Mật Khẩu Admin -->
+      <form id="tab-change-pin" onsubmit="submitChangePin(event)" class="hidden p-4 sm:p-5 space-y-4 text-xs max-h-[65vh] overflow-y-auto">
+        <div class="p-3.5 rounded-lg bg-amber-50 border border-amber-200 text-amber-900 space-y-1.5">
+          <div class="flex items-center gap-1.5 font-bold text-amber-800 text-xs sm:text-sm">
+            <i data-lucide="shield-check" class="w-4 h-4 text-amber-600 shrink-0"></i>
+            <span>Bảo Mật Bảng Quản Trị Hệ Thống</span>
+          </div>
+          <p class="text-[11.5px] leading-relaxed text-amber-800">
+            Mật khẩu quản trị giúp ngăn người khác chỉnh sửa danh sách công cụ, lớp học và tài liệu của Thầy. 
+            Sau khi đổi mật khẩu, hãy bấm nút <strong>"Xuất file data.js Cập Nhật"</strong> ở bên dưới và tải lên GitHub để mật khẩu có hiệu lực vĩnh viễn trên mọi thiết bị.
+          </p>
+        </div>
+
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Mật khẩu / PIN hiện tại:</label>
+          <input id="admin-current-pin" type="password" placeholder="Nhập mật khẩu đang dùng (mặc định: admin123)" required class="w-full p-2.5 border border-slate-300 rounded-lg text-xs focus:border-red-500 focus:outline-none">
+        </div>
+
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Mật khẩu / PIN mới:</label>
+          <input id="admin-new-pin" type="password" placeholder="Nhập mật khẩu mới (tối thiểu 4 ký tự)" required class="w-full p-2.5 border border-slate-300 rounded-lg text-xs focus:border-red-500 focus:outline-none">
+        </div>
+
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Xác nhận mật khẩu mới:</label>
+          <input id="admin-confirm-pin" type="password" placeholder="Nhập lại mật khẩu mới" required class="w-full p-2.5 border border-slate-300 rounded-lg text-xs focus:border-red-500 focus:outline-none">
+        </div>
+
+        <button type="submit" class="w-full py-2.5 bg-red-600 hover:bg-red-700 text-white font-bold rounded-lg text-xs shadow-xs flex items-center justify-center gap-2 transition-colors">
+          <i data-lucide="key-round" class="w-4 h-4"></i>
+          <span>Lưu &amp; Cập Nhật Mật Khẩu Admin</span>
+        </button>
+      </form>
+
+      <!-- Admin Actions Footer: Export data.js 1-Click -->
+      <div class="p-3 bg-slate-50 border-t border-slate-200 flex items-center justify-between gap-2">
+        <button onclick="resetAdminData()" class="px-3 py-1.5 text-slate-500 hover:text-red-600 text-xs font-semibold">
+          🔄 Đặt lại mặc định
+        </button>
+        <div class="flex items-center gap-2">
+          <button onclick="closeModal('admin-modal')" class="px-3 py-1.5 bg-slate-200 hover:bg-slate-300 text-slate-700 rounded-lg text-xs font-bold">
+            Đóng
+          </button>
+          <button onclick="exportDataJsFile()" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs font-bold flex items-center gap-1.5 shadow-sm">
+            <i data-lucide="download" class="w-4 h-4"></i>
+            <span>Xuất file data.js Cập Nhật</span>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -373,7 +574,7 @@
   <div id="toast-container"></div>
 
   <!-- Scripts with cache busters -->
-  <script src="assets/js/data.js?v=4.0"></script>
-  <script src="assets/js/app.js?v=4.0"></script>
+  <script src="assets/js/data.js?v=6.0"></script>
+  <script src="assets/js/app.js?v=6.0"></script>
 </body>
 </html>

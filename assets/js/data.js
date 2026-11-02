@@ -4,6 +4,9 @@
  */
 
 const PORTFOLIO_DATA = {
+  // Cấu hình bảo mật Admin (Thầy có thể đổi trong giao diện hoặc đổi trực tiếp tại đây)
+  adminPin: "admin123",
+
   // Thông tin tác giả & Giáo viên
   profile: {
     fullName: "Thầy Hoàng Ngọc Tuyên",
@@ -15,10 +18,12 @@ const PORTFOLIO_DATA = {
     avatar: "assets/images/teacher-avatar.svg",
     contacts: {
       phone: "0912.345.xxx",
-      email: "hoangtuyen.eahleo@gmail.com",
-      github: "https://github.com/hoangtuyen47",
+      phoneCall: "tel:0912345678",
       zalo: "https://zalo.me",
       facebook: "https://facebook.com",
+      youtube: "https://youtube.com",
+      tiktok: "https://tiktok.com",
+      email: "hoangtuyen.eahleo@gmail.com",
       schoolWeb: "http://c3eahleo.daklak.edu.vn"
     }
   },
@@ -39,7 +44,8 @@ const PORTFOLIO_DATA = {
         "Kỹ năng an toàn thông tin & văn hóa ứng xử trên không gian mạng"
       ],
       schedule: "Tối Thứ 3 - Thứ 5 hoặc Chiều Thứ 7",
-      status: "Đang tuyển sinh"
+      status: "Đang tuyển sinh",
+      registerLink: "https://zalo.me"
     },
     {
       id: "class-stem-arduino",
@@ -55,7 +61,8 @@ const PORTFOLIO_DATA = {
         "Rèn luyện tư duy thuật toán logic và giải quyết vấn đề thực tế"
       ],
       schedule: "Chiều Thứ 7 & Sáng Chủ Nhật",
-      status: "Đang tuyển sinh"
+      status: "Đang tuyển sinh",
+      registerLink: "https://zalo.me"
     },
     {
       id: "class-stem-esp32",
@@ -71,23 +78,15 @@ const PORTFOLIO_DATA = {
         "Hỗ trợ hướng dẫn đề tài tham gia Cuộc thi Khoa học Kỹ thuật (KHKT)"
       ],
       schedule: "Chiều Chủ Nhật hàng tuần",
-      status: "Đang tuyển sinh"
+      status: "Đang tuyển sinh",
+      registerLink: "https://zalo.me"
     }
-  ],
-
-  // Danh mục phân hệ công cụ
-  categories: [
-    { id: "all", name: "Tất cả công cụ", icon: "layout-grid" },
-    { id: "management", name: "Quản lý & Khảo thí", icon: "shield-check" },
-    { id: "teaching", name: "Giảng dạy & STEM 3D", icon: "cpu" },
-    { id: "utility", name: "Tiện ích giáo viên", icon: "file-check" }
   ],
 
   // 6 Hệ thống đã triển khai (Nhóm trên cột phải - Tối ưu hình ảnh, ngắn gọn)
   systems: [
     {
       id: "ne-nep",
-      categoryId: "management",
       title: "Hệ Thống Quản Lý Nề Nếp & Thi Đua",
       badge: "Đang vận hành",
       badgeColor: "red",
@@ -99,11 +98,11 @@ const PORTFOLIO_DATA = {
         "Xuất báo cáo tổng kết thi đua PDF/Excel chuẩn Bộ GD&ĐT"
       ],
       demoLink: "https://script.google.com/macros/s/AKfycbxLKgD3-0YyeMnq00ZdT1j8o5wv0VqAI6W0uVsuaYWbBTZbgaVKMh3Y7qiQPn7fUWDN/exec",
+      registerLink: "https://zalo.me",
       demoAccount: { user: "admin", pass: "nenhiep@2026" }
     },
     {
       id: "xep-lich-thi-2-2",
-      categoryId: "management",
       title: "Xếp Lịch Thi Thử Tốt Nghiệp (2 + 2)",
       badge: "Thuật toán AI",
       badgeColor: "amber",
@@ -115,11 +114,11 @@ const PORTFOLIO_DATA = {
         "Xuất file Word & Excel 1-click: DS phòng thi, phiếu thu bài"
       ],
       demoLink: "https://script.google.com/macros/s/AKfycbz_xeplich22_sample/exec",
+      registerLink: "https://zalo.me",
       demoAccount: { user: "khaothi", pass: "khaothi@2+2" }
     },
     {
       id: "aura-exam-online",
-      categoryId: "management",
       title: "Trợ Lý Tạo Đề Thi & Khảo Thí Online (Aura)",
       badge: "Khảo thí AI",
       badgeColor: "blue",
@@ -131,11 +130,11 @@ const PORTFOLIO_DATA = {
         "Phòng thi trực tuyến giám sát chống chuyển tab và gian lận"
       ],
       demoLink: "https://script.google.com/macros/s/AKfycbz_aura_sample/exec",
+      registerLink: "https://zalo.me",
       demoAccount: { user: "teacher_tin", pass: "aura@exam2026" }
     },
     {
       id: "ho-so-giao-an-5512",
-      categoryId: "utility",
       title: "Trợ Lý Hồ Sơ Giáo Án Điện Tử (Chuẩn 5512)",
       badge: "Chuẩn Bộ GD",
       badgeColor: "emerald",
@@ -147,11 +146,11 @@ const PORTFOLIO_DATA = {
         "Ký duyệt giáo án số nội bộ và nhận xét chuyên môn trực tuyến"
       ],
       demoLink: "https://script.google.com/macros/s/AKfycbz_hoso5512_sample/exec",
+      registerLink: "https://zalo.me",
       demoAccount: { user: "totruong_tin", pass: "hoso@5512" }
     },
     {
       id: "diem-danh-hoc-phi",
-      categoryId: "utility",
       title: "Điểm Danh & Tính Học Phí Lớp Dạy Thêm",
       badge: "Tự động hóa",
       badgeColor: "red",
@@ -163,11 +162,11 @@ const PORTFOLIO_DATA = {
         "Tự động sinh phiếu báo kèm mã QR chuyển khoản VietQR"
       ],
       demoLink: "https://script.google.com/macros/s/AKfycbz_diemdanh_sample/exec",
+      registerLink: "https://zalo.me",
       demoAccount: { user: "admin_class", pass: "hocphi@2026" }
     },
     {
       id: "mo-hinh-3d-arduino",
-      categoryId: "teaching",
       title: "Mô Hình 3D Trực Quan Dạy Học STEM",
       badge: "WebGL 3D",
       badgeColor: "blue",
@@ -179,16 +178,18 @@ const PORTFOLIO_DATA = {
         "Trợ lý AI giải thích công dụng từng chân GPIO và nguyên lý mạch"
       ],
       demoLink: "https://script.google.com/macros/s/AKfycbz_3d_arduino_sample/exec",
+      registerLink: "https://zalo.me",
       demoAccount: { user: "Mở trực tiếp", pass: "Không cần tài khoản" }
     }
   ],
 
-  // Kho học liệu số & Dự án STEM thực hành (Nhóm dưới cột phải)
+  // Kho học liệu số & Dự án STEM thực hành (Nhóm dưới cột phải - Có ảnh minh họa)
   studentLibrary: [
     {
       id: "lib-traffic-light",
       category: "Module 1: Arduino Cơ Bản",
       badge: "Arduino C++",
+      image: "assets/images/lib-traffic-light.svg",
       title: "Dự Án: Đèn Giao Thông Thông Minh & Nút Bấm Người Đi Bộ",
       description: "Ứng dụng ngắt phần cứng (Interrupt) và thuật toán phân luồng giao thông ưu tiên người đi bộ qua đường an toàn.",
       hardware: ["Arduino Uno R3", "3x LED (Đỏ, Vàng, Xanh)", "3x Điện trở 220Ω", "1x Nút bấm", "Breadboard"],
@@ -243,6 +244,7 @@ void handlePedestrian() {
       id: "lib-smart-trash-bin",
       category: "Module 2: Động Cơ & Cảm Biến",
       badge: "Arduino + Servo",
+      image: "assets/images/lib-smart-trash.svg",
       title: "Dự Án: Thùng Rác Thông Minh Tự Mở Nắp (HC-SR04 + Servo)",
       description: "Đo khoảng cách bàn tay tiếp cận dưới 20cm, tự động điều khiển Servo quay góc 90 độ mở nắp và tự đóng sau 3 giây.",
       hardware: ["Arduino Nano/Uno", "Cảm biến siêu âm HC-SR04", "Động cơ Servo SG90", "Nguồn 5V"],
@@ -283,6 +285,7 @@ void loop() {
       id: "lib-esp32-iot",
       category: "Module 3: Internet of Things",
       badge: "ESP32 IoT",
+      image: "assets/images/lib-esp32-weather.svg",
       title: "Dự Án: Trạm Quan Trắc Nhiệt Độ - Độ Ẩm Môi Trường ESP32",
       description: "Đo nhiệt độ, độ ẩm phòng học và phát sóng Wi-Fi Web Server để xem thông số trực tiếp trên điện thoại học sinh.",
       hardware: ["Board ESP32 NodeMCU", "Cảm biến DHT11", "Màn hình OLED I2C", "Cáp micro USB"],
@@ -323,6 +326,7 @@ void loop() {
       id: "lib-python-cv-ai",
       category: "Module 4: Trí Tuệ Nhân Tạo (AI)",
       badge: "Python OpenCV",
+      image: "assets/images/lib-python-ai.svg",
       title: "Dự Án: Ứng Dụng AI Thị Giác Máy Tính Nhận Diện Cử Chỉ Tay",
       description: "Chuyên đề Tin học AI: Sử dụng MediaPipe định vị 21 khớp bàn tay và điều khiển ứng dụng không cần chuột chạm.",
       hardware: ["Máy tính có Webcam", "Python 3.10+", "Thư viện: opencv-python, mediapipe"],

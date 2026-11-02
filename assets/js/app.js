@@ -1,22 +1,23 @@
 /**
  * APP LOGIC: TRƯỜNG THPT EA H'LEO
  * Bố cục 2 Cột: Cột trái (Tác giả + Các lớp học) | Cột phải (Công cụ + Kho học liệu)
+ * Tính năng mở rộng: Bảng Quản Trị Admin thêm mới công cụ, lớp học, học liệu & xuất file data.js
  */
 
-let activeCategory = 'all';
 let currentSearchQuery = '';
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Load any local customizations from localStorage if available
+  loadLocalAdminData();
   renderProfile();
   renderClasses();
-  renderCategories();
   renderSystems();
   renderStudentLibrary();
   setupEventListeners();
   lucide.createIcons();
 });
 
-// 1. Render Thông tin tác giả (Cột trái)
+// 1. Render Thông tin tác giả & Các nút liên hệ Zalo, FB, YT, TikTok (Cột trái)
 function renderProfile() {
   const p = PORTFOLIO_DATA.profile;
   if (!p) return;
@@ -36,8 +37,9 @@ function renderProfile() {
   // Contacts
   setLinkHref('link-zalo', p.contacts.zalo);
   setLinkHref('link-facebook', p.contacts.facebook);
-  setLinkHref('link-github', p.contacts.github);
-  setLinkHref('link-email', `mailto:${p.contacts.email}`);
+  setLinkHref('link-youtube', p.contacts.youtube);
+  setLinkHref('link-tiktok', p.contacts.tiktok);
+  setLinkHref('link-phone', p.contacts.phoneCall || `tel:${p.contacts.phone}`);
   setLinkHref('link-school', p.contacts.schoolWeb);
 }
 
@@ -86,65 +88,26 @@ function renderClasses() {
 
         <div class="pt-1 flex items-center justify-between border-t border-slate-100">
           <span class="text-[10px] text-slate-500 italic">📅 ${escapeHtml(cls.schedule)}</span>
-          <button 
-            onclick="openClassRegisterModal('${cls.id}')"
+          <a 
+            href="${cls.registerLink || 'https://zalo.me'}" 
+            target="_blank" 
+            rel="noopener noreferrer"
             class="px-2.5 py-1.5 bg-red-600 hover:bg-red-700 text-white rounded-lg text-xs font-bold transition-colors shadow-xs flex items-center gap-1">
             <span>Đăng ký học</span>
             <i data-lucide="arrow-right" class="w-3 h-3"></i>
-          </button>
+          </a>
         </div>
       </div>
     </div>
   `).join('');
 }
 
-// 3. Render Thanh lọc phân hệ
-function renderCategories() {
-  const navEl = document.getElementById('category-filter-nav');
-  if (!navEl) return;
-
-  navEl.innerHTML = PORTFOLIO_DATA.categories.map(c => {
-    const isActive = c.id === activeCategory;
-    const activeClass = isActive
-      ? 'bg-red-600 text-white shadow-xs font-bold'
-      : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200';
-
-    return `
-      <button 
-        onclick="selectCategory('${c.id}')"
-        class="px-3 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1.5 transition-all ${activeClass}">
-        <i data-lucide="${c.icon}" class="w-3.5 h-3.5"></i>
-        <span>${escapeHtml(c.name)}</span>
-        <span class="text-[10px] px-1.5 py-0.2 rounded-full ${isActive ? 'bg-red-800 text-white' : 'bg-slate-100 text-slate-600'}">
-          ${getCategoryCount(c.id)}
-        </span>
-      </button>
-    `;
-  }).join('');
-}
-
-function getCategoryCount(catId) {
-  if (catId === 'all') return PORTFOLIO_DATA.systems.length;
-  return PORTFOLIO_DATA.systems.filter(s => s.categoryId === catId).length;
-}
-
-function selectCategory(catId) {
-  activeCategory = catId;
-  renderCategories();
-  renderSystems();
-  lucide.createIcons();
-}
-
-// 4. Render Nhóm Trên Cột Phải: Các công cụ đã triển khai (Hình ảnh to, bớt chữ, tính năng chính)
+// 3. Render Nhóm Trên Cột Phải: Các công cụ đã triển khai (Đi thẳng vào công cụ, ảnh to đẹp)
 function renderSystems() {
   const container = document.getElementById('systems-container');
   if (!container) return;
 
   let filtered = PORTFOLIO_DATA.systems;
-
-  if (activeCategory !== 'all') {
-    filtered = filtered.filter(s => s.categoryId === activeCategory);
-  }
 
   if (currentSearchQuery.trim() !== '') {
     const q = currentSearchQuery.toLowerCase();
@@ -212,15 +175,17 @@ function renderSystems() {
               rel="noopener noreferrer"
               class="flex-1 py-2 px-3 rounded-lg btn-primary-red text-xs font-bold flex items-center justify-center gap-1.5 shadow-xs">
               <span>Trải nghiệm</span>
-              <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+              <i data-lucide="external-link" class="w-3 h-3"></i>
             </a>
 
-            <button 
-              onclick="openRegisterToolModal('${sys.id}')"
+            <a 
+              href="${sys.registerLink || 'https://zalo.me'}" 
+              target="_blank" 
+              rel="noopener noreferrer"
               class="flex-1 py-2 px-3 rounded-lg btn-secondary-light text-xs font-bold flex items-center justify-center gap-1.5">
               <i data-lucide="file-check" class="w-3.5 h-3.5 text-red-600"></i>
               <span>Đăng ký dùng</span>
-            </button>
+            </a>
           </div>
         </div>
       </div>
@@ -228,206 +193,72 @@ function renderSystems() {
   }).join('');
 }
 
-// 5. Render Nhóm Dưới Cột Phải: Kho học liệu số với các dự án (Sơ đồ mạch - Code - Kiến thức)
+// 4. Render Nhóm Dưới Cột Phải: Kho học liệu số với các dự án (Có hình ảnh minh họa to đẹp)
 function renderStudentLibrary() {
   const container = document.getElementById('student-library-container');
   if (!container || !PORTFOLIO_DATA.studentLibrary) return;
 
   container.innerHTML = PORTFOLIO_DATA.studentLibrary.map(item => `
-    <div class="p-4 rounded-xl bg-white border border-slate-200 hover:border-red-300 shadow-xs hover:shadow-sm transition-all space-y-3">
-      <div class="flex items-center justify-between gap-2 border-b border-slate-100 pb-2">
-        <span class="px-2.5 py-0.5 text-[11px] font-bold rounded bg-red-50 text-red-700 border border-red-200">
-          ${escapeHtml(item.category)}
-        </span>
-        <span class="text-[11px] text-slate-500 font-mono">
-          Ngôn ngữ: <strong class="text-slate-800">${escapeHtml(item.badge)}</strong>
-        </span>
+    <div class="portal-card-interactive bg-white border border-slate-200 rounded-xl overflow-hidden shadow-xs hover:border-red-300 transition-all flex flex-col justify-between group">
+      <!-- Large Illustration Thumbnail -->
+      <div class="h-44 sm:h-48 bg-slate-100 relative overflow-hidden border-b border-slate-100">
+        <img src="${item.image}" alt="${escapeHtml(item.title)}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+        <div class="absolute top-2.5 left-2.5">
+          <span class="px-2.5 py-0.5 text-[10.5px] font-bold rounded bg-red-600 text-white shadow-xs">
+            ${escapeHtml(item.category)}
+          </span>
+        </div>
+        <div class="absolute top-2.5 right-2.5">
+          <span class="px-2 py-0.5 text-[10px] font-semibold rounded bg-white text-slate-700 shadow-xs border border-slate-200">
+            ${escapeHtml(item.badge)}
+          </span>
+        </div>
       </div>
 
-      <div>
-        <h5 class="font-bold text-sm sm:text-base text-slate-900 leading-snug">
-          ${escapeHtml(item.title)}
-        </h5>
-        <p class="text-xs text-slate-600 mt-1 leading-relaxed">
-          ${escapeHtml(item.description)}
-        </p>
-      </div>
+      <!-- Content -->
+      <div class="p-4 flex-1 flex flex-col justify-between space-y-3">
+        <div class="space-y-1.5">
+          <h5 class="font-bold text-sm sm:text-base text-slate-900 leading-snug group-hover:text-red-700 transition-colors">
+            ${escapeHtml(item.title)}
+          </h5>
+          <p class="text-xs text-slate-600 line-clamp-2 leading-relaxed">
+            ${escapeHtml(item.description)}
+          </p>
 
-      <!-- Sơ đồ nối dây & Linh kiện tóm tắt -->
-      <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200 text-xs space-y-1">
-        <p class="text-slate-800 font-semibold flex items-center gap-1.5">
-          <i data-lucide="cpu" class="w-3.5 h-3.5 text-red-600"></i>
-          <span>Sơ đồ mạch &amp; Linh kiện:</span>
-        </p>
-        <p class="text-[11.5px] text-slate-600 font-mono">
-          ${escapeHtml(item.wiringGuide)}
-        </p>
-      </div>
+          <!-- Sơ đồ nối dây & Linh kiện tóm tắt -->
+          <div class="p-2 rounded-lg bg-slate-50 border border-slate-200 text-xs space-y-0.5">
+            <p class="text-slate-800 font-semibold flex items-center gap-1">
+              <i data-lucide="cpu" class="w-3.5 h-3.5 text-red-600"></i>
+              <span>Nối chân linh kiện:</span>
+            </p>
+            <p class="text-[11px] text-slate-600 font-mono line-clamp-1">
+              ${escapeHtml(item.wiringGuide)}
+            </p>
+          </div>
+        </div>
 
-      <!-- Nút hành động học sinh -->
-      <div class="flex items-center gap-2 pt-1">
-        <button 
-          onclick="openCodeViewerModal('${item.id}')"
-          class="flex-1 py-2 px-3 bg-red-50 hover:bg-red-100 text-red-700 border border-red-200 rounded-lg text-xs font-bold flex items-center justify-center gap-1.5 transition-colors">
-          <i data-lucide="code" class="w-3.5 h-3.5"></i>
-          <span>Xem mã nguồn &amp; Copy</span>
-        </button>
+        <!-- 2 Nút: Mã nguồn & Sơ đồ -->
+        <div class="flex items-center gap-2 pt-2 border-t border-slate-100">
+          <button 
+            onclick="openCodeViewerModal('${item.id}')"
+            class="flex-1 py-2 px-2.5 bg-red-50 hover:bg-red-100 text-red-700 border border-red-200 rounded-lg text-xs font-bold flex items-center justify-center gap-1.5 transition-colors">
+            <i data-lucide="code" class="w-3.5 h-3.5"></i>
+            <span>Mã nguồn &amp; Copy</span>
+          </button>
 
-        <button 
-          onclick="openDiagramModal('${item.id}')"
-          class="flex-1 py-2 px-3 bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-200 rounded-lg text-xs font-bold flex items-center justify-center gap-1.5 transition-colors">
-          <i data-lucide="network" class="w-3.5 h-3.5 text-sky-600"></i>
-          <span>Xem sơ đồ mạch 3D</span>
-        </button>
+          <button 
+            onclick="openDiagramModal('${item.id}')"
+            class="flex-1 py-2 px-2.5 bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-200 rounded-lg text-xs font-bold flex items-center justify-center gap-1.5 transition-colors">
+            <i data-lucide="network" class="w-3.5 h-3.5 text-sky-600"></i>
+            <span>Sơ đồ mạch</span>
+          </button>
+        </div>
       </div>
     </div>
   `).join('');
 }
 
-// 6. Modal Đăng Ký Sử Dụng Công Cụ
-function openRegisterToolModal(toolId) {
-  const tool = PORTFOLIO_DATA.systems.find(s => s.id === toolId);
-  if (!tool) return;
-
-  const modal = document.getElementById('register-tool-modal');
-  const modalContent = document.getElementById('register-modal-content');
-  if (!modal || !modalContent) return;
-
-  modalContent.innerHTML = `
-    <!-- Header -->
-    <div class="p-4 sm:p-5 border-b border-slate-200 flex items-start justify-between gap-3 bg-red-700 text-white">
-      <div>
-        <span class="px-2 py-0.5 text-[10px] font-bold rounded bg-white/20 text-white uppercase">
-          Đăng ký sử dụng & Chuyển giao
-        </span>
-        <h3 class="text-base sm:text-lg font-bold text-white mt-1 leading-snug">
-          ${escapeHtml(tool.title)}
-        </h3>
-      </div>
-      <button onclick="closeModal('register-tool-modal')" class="p-1 text-red-200 hover:text-white rounded-lg hover:bg-white/10 transition-colors">
-        <i data-lucide="x" class="w-5 h-5"></i>
-      </button>
-    </div>
-
-    <!-- Body -->
-    <div class="p-4 sm:p-5 space-y-4 max-h-[70vh] overflow-y-auto bg-white text-slate-800">
-      <div class="p-3 bg-red-50/60 rounded-xl border border-red-200 space-y-1">
-        <p class="font-bold text-red-800 text-xs">
-          📋 Hướng dẫn nhận quyền sử dụng hoặc chuyển giao cho nhà trường:
-        </p>
-        <p class="text-xs text-slate-700 leading-relaxed">
-          Hệ thống được phát triển nhằm hỗ trợ miễn phí công tác quản lý giáo dục. Quý thầy cô, Ban Giám Hiệu hoặc giáo viên bộ môn có nhu cầu triển khai vui lòng liên hệ trực tiếp với Thầy Hoàng Ngọc Tuyên để được cấp tài khoản quản trị và nhân bản hệ thống.
-        </p>
-      </div>
-
-      <!-- Demo Account Box -->
-      <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
-        <p class="text-xs font-bold text-slate-900 uppercase">Tài khoản trải nghiệm nhanh:</p>
-        <div class="flex items-center gap-2 flex-wrap">
-          <button 
-            onclick="copyToClipboard('${escapeJs(tool.demoAccount.user)}', 'Đã copy tài khoản!')"
-            class="px-2.5 py-1 bg-white rounded border border-slate-200 text-xs font-mono text-slate-800 flex items-center gap-1.5 shadow-xs">
-            <span class="text-slate-400 font-sans">User:</span>
-            <span class="font-bold">${escapeHtml(tool.demoAccount.user)}</span>
-            <i data-lucide="copy" class="w-3 h-3 text-slate-400"></i>
-          </button>
-
-          <button 
-            onclick="copyToClipboard('${escapeJs(tool.demoAccount.pass)}', 'Đã copy mật khẩu!')"
-            class="px-2.5 py-1 bg-white rounded border border-slate-200 text-xs font-mono text-red-700 flex items-center gap-1.5 shadow-xs">
-            <span class="text-slate-400 font-sans">Pass:</span>
-            <span class="font-bold">${escapeHtml(tool.demoAccount.pass)}</span>
-            <i data-lucide="copy" class="w-3 h-3 text-slate-400"></i>
-          </button>
-        </div>
-      </div>
-
-      <!-- Contact direct -->
-      <div class="p-3 bg-emerald-50/70 rounded-xl border border-emerald-200 space-y-2">
-        <p class="text-xs font-bold text-emerald-900">Liên hệ hỗ trợ kỹ thuật &amp; Chuyển giao:</p>
-        <div class="text-xs text-slate-700 space-y-1">
-          <p>• <strong>Thầy Hoàng Ngọc Tuyên</strong> - Trường THPT Ea H'leo, Đắk Lắk</p>
-          <p>• <strong>Điện thoại / Zalo:</strong> 0912.345.xxx</p>
-          <p>• <strong>Email:</strong> hoangtuyen.eahleo@gmail.com</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Footer -->
-    <div class="p-3 sm:p-4 bg-slate-50 border-t border-slate-200 flex items-center justify-between">
-      <button onclick="closeModal('register-tool-modal')" class="px-4 py-2 rounded-lg bg-slate-200 hover:bg-slate-300 text-slate-700 text-xs font-bold transition-colors">
-        Đóng
-      </button>
-      <a 
-        href="https://zalo.me" 
-        target="_blank" 
-        class="px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold flex items-center gap-1.5 transition-colors shadow-xs">
-        <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
-        <span>Nhắn tin qua Zalo</span>
-      </a>
-    </div>
-  `;
-
-  modal.classList.remove('hidden');
-  modal.classList.add('flex');
-  lucide.createIcons();
-}
-
-// 7. Modal Đăng Ký Lớp Học
-function openClassRegisterModal(classId) {
-  const cls = PORTFOLIO_DATA.classes.find(c => c.id === classId);
-  if (!cls) return;
-
-  const modal = document.getElementById('register-tool-modal');
-  const modalContent = document.getElementById('register-modal-content');
-  if (!modal || !modalContent) return;
-
-  modalContent.innerHTML = `
-    <div class="p-4 sm:p-5 border-b border-slate-200 flex items-start justify-between gap-3 bg-red-700 text-white">
-      <div>
-        <span class="px-2 py-0.5 text-[10px] font-bold rounded bg-white/20 text-white uppercase">
-          Tư vấn &amp; Đăng ký tham gia
-        </span>
-        <h3 class="text-base sm:text-lg font-bold text-white mt-1 leading-snug">
-          ${escapeHtml(cls.title)}
-        </h3>
-      </div>
-      <button onclick="closeModal('register-tool-modal')" class="p-1 text-red-200 hover:text-white rounded-lg hover:bg-white/10 transition-colors">
-        <i data-lucide="x" class="w-5 h-5"></i>
-      </button>
-    </div>
-
-    <div class="p-4 sm:p-5 space-y-3 bg-white text-slate-800 text-xs">
-      <p class="text-slate-700 leading-relaxed">
-        Quý phụ huynh và các em học sinh có nhu cầu tham gia khóa học xin vui lòng liên hệ trực tiếp với Thầy Hoàng Ngọc Tuyên để được xếp lịch và nhận tài liệu chuẩn bị.
-      </p>
-      <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
-        <p>• <strong>Đối tượng:</strong> ${escapeHtml(cls.target)}</p>
-        <p>• <strong>Lịch học:</strong> ${escapeHtml(cls.schedule)}</p>
-        <p>• <strong>Địa điểm:</strong> Phòng Tin học &amp; STEM Trường THPT Ea H'leo</p>
-      </div>
-    </div>
-
-    <div class="p-3 sm:p-4 bg-slate-50 border-t border-slate-200 flex items-center justify-between">
-      <button onclick="closeModal('register-tool-modal')" class="px-4 py-2 rounded-lg bg-slate-200 hover:bg-slate-300 text-slate-700 text-xs font-bold transition-colors">
-        Đóng
-      </button>
-      <a 
-        href="https://zalo.me" 
-        target="_blank" 
-        class="px-4 py-2 rounded-lg bg-red-600 hover:bg-red-700 text-white text-xs font-bold flex items-center gap-1.5 transition-colors shadow-xs">
-        <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
-        <span>Nhắn Zalo đăng ký ngay</span>
-      </a>
-    </div>
-  `;
-
-  modal.classList.remove('hidden');
-  modal.classList.add('flex');
-  lucide.createIcons();
-}
-
-// 8. Code Viewer Modal
+// 5. Code Viewer Modal
 function openCodeViewerModal(itemId) {
   const item = PORTFOLIO_DATA.studentLibrary.find(i => i.id === itemId);
   if (!item) return;
@@ -454,7 +285,7 @@ function openCodeViewerModal(itemId) {
   lucide.createIcons();
 }
 
-// 9. Diagram Modal
+// 6. Diagram Modal
 function openDiagramModal(itemId) {
   const item = PORTFOLIO_DATA.studentLibrary.find(i => i.id === itemId);
   if (!item) return;
@@ -474,6 +305,233 @@ function openDiagramModal(itemId) {
   lucide.createIcons();
 }
 
+// 7. BẢNG QUẢN TRỊ ADMIN (Thêm Lớp Học / Thêm Công Cụ / Thêm Học Liệu / Đổi Mật Khẩu & Xuất file data.js)
+function getAdminPin() {
+  return localStorage.getItem('THPT_EAHLEO_ADMIN_PIN') || PORTFOLIO_DATA.adminPin || 'admin123';
+}
+
+function openAdminLogin() {
+  const currentPin = getAdminPin();
+  const pass = prompt('🔑 Nhập mã PIN Quản Trị Viên:');
+  if (pass === null) return;
+  if (pass === currentPin || (currentPin === 'admin123' && pass === 'admin')) {
+    openAdminPanel();
+  } else {
+    alert('❌ Mã PIN không đúng! Vui lòng thử lại.');
+  }
+}
+
+function openAdminPanel() {
+  const modal = document.getElementById('admin-modal');
+  if (!modal) return;
+  modal.classList.remove('hidden');
+  modal.classList.add('flex');
+  switchAdminTab('tab-add-system');
+  lucide.createIcons();
+}
+
+function switchAdminTab(tabId) {
+  ['tab-add-system', 'tab-add-class', 'tab-add-library', 'tab-change-pin'].forEach(id => {
+    const el = document.getElementById(id);
+    const btn = document.getElementById('btn-' + id);
+    if (el) el.classList.toggle('hidden', id !== tabId);
+    if (btn) {
+      if (id === tabId) {
+        btn.className = 'px-4 py-2 rounded-lg bg-red-600 text-white font-bold text-xs shadow-xs whitespace-nowrap flex items-center gap-1.5';
+      } else {
+        btn.className = 'px-4 py-2 rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200 font-semibold text-xs whitespace-nowrap flex items-center gap-1.5';
+      }
+    }
+  });
+  lucide.createIcons();
+}
+
+function submitNewSystem(e) {
+  e.preventDefault();
+  const title = document.getElementById('admin-sys-title').value.trim();
+  const badge = document.getElementById('admin-sys-badge').value.trim() || 'Mới';
+  const image = document.getElementById('admin-sys-image').value.trim() || 'assets/images/dashboard-school.png';
+  const featuresText = document.getElementById('admin-sys-features').value.trim();
+  const demoLink = document.getElementById('admin-sys-demo').value.trim() || '#';
+  const registerLink = document.getElementById('admin-sys-reg').value.trim() || 'https://zalo.me';
+
+  if (!title) return alert('Vui lòng nhập tên công cụ!');
+
+  const features = featuresText ? featuresText.split('\n').filter(f => f.trim() !== '') : ['Hệ thống công nghệ giáo dục'];
+
+  const newSys = {
+    id: 'sys-' + Date.now(),
+    title,
+    badge,
+    badgeColor: 'red',
+    image,
+    features,
+    demoLink,
+    registerLink,
+    demoAccount: { user: 'admin', pass: '123456' }
+  };
+
+  PORTFOLIO_DATA.systems.unshift(newSys);
+  saveLocalAdminData();
+  renderSystems();
+  lucide.createIcons();
+  showToast('✅ Đã thêm công cụ mới thành công!');
+  closeModal('admin-modal');
+}
+
+function submitNewClass(e) {
+  e.preventDefault();
+  const title = document.getElementById('admin-cls-title').value.trim();
+  const badge = document.getElementById('admin-cls-badge').value.trim() || 'Tuyển sinh';
+  const image = document.getElementById('admin-cls-image').value.trim() || 'assets/images/class-digital-skills.png';
+  const target = document.getElementById('admin-cls-target').value.trim() || 'Học sinh';
+  const highlightsText = document.getElementById('admin-cls-highlights').value.trim();
+  const schedule = document.getElementById('admin-cls-schedule').value.trim() || 'Lịch linh hoạt';
+  const registerLink = document.getElementById('admin-cls-reg').value.trim() || 'https://zalo.me';
+
+  if (!title) return alert('Vui lòng nhập tên lớp học!');
+
+  const highlights = highlightsText ? highlightsText.split('\n').filter(h => h.trim() !== '') : ['Chương trình học thực tế'];
+
+  const newCls = {
+    id: 'cls-' + Date.now(),
+    title,
+    badge,
+    badgeColor: 'emerald',
+    image,
+    target,
+    highlights,
+    schedule,
+    status: 'Đang tuyển sinh',
+    registerLink
+  };
+
+  PORTFOLIO_DATA.classes.unshift(newCls);
+  saveLocalAdminData();
+  renderClasses();
+  lucide.createIcons();
+  showToast('✅ Đã thêm lớp học mới thành công!');
+  closeModal('admin-modal');
+}
+
+function submitNewLibrary(e) {
+  e.preventDefault();
+  const title = document.getElementById('admin-lib-title').value.trim();
+  const category = document.getElementById('admin-lib-cat').value.trim() || 'Module STEM';
+  const badge = document.getElementById('admin-lib-badge').value.trim() || 'Code';
+  const image = document.getElementById('admin-lib-image').value.trim() || 'assets/images/lib-traffic-light.svg';
+  const description = document.getElementById('admin-lib-desc').value.trim() || 'Dự án thực hành STEM';
+  const wiringGuide = document.getElementById('admin-lib-wiring').value.trim() || 'Xem sơ đồ chi tiết';
+  const codeSnippet = document.getElementById('admin-lib-code').value.trim() || '// Code mẫu';
+
+  if (!title) return alert('Vui lòng nhập tên dự án!');
+
+  const newItem = {
+    id: 'lib-' + Date.now(),
+    category,
+    badge,
+    image,
+    title,
+    description,
+    hardware: ['Mạch vi điều khiển'],
+    wiringGuide,
+    diagramImage: 'assets/images/circuit-arduino.svg',
+    codeSnippet
+  };
+
+  PORTFOLIO_DATA.studentLibrary.unshift(newItem);
+  saveLocalAdminData();
+  renderStudentLibrary();
+  lucide.createIcons();
+  showToast('✅ Đã thêm dự án học liệu mới thành công!');
+  closeModal('admin-modal');
+}
+
+// Xử lý đổi mật khẩu / PIN Admin
+function submitChangePin(e) {
+  e.preventDefault();
+  const currentInput = document.getElementById('admin-current-pin').value.trim();
+  const newPin = document.getElementById('admin-new-pin').value.trim();
+  const confirmPin = document.getElementById('admin-confirm-pin').value.trim();
+
+  const realPin = getAdminPin();
+  if (currentInput !== realPin && !(realPin === 'admin123' && currentInput === 'admin')) {
+    return alert('❌ Mật khẩu hiện tại không chính xác!');
+  }
+
+  if (!newPin || newPin.length < 4) {
+    return alert('❌ Mật khẩu mới phải có ít nhất 4 ký tự!');
+  }
+
+  if (newPin !== confirmPin) {
+    return alert('❌ Mật khẩu mới và mật khẩu xác nhận không trùng khớp!');
+  }
+
+  // Cập nhật mật khẩu mới vào state & localStorage
+  PORTFOLIO_DATA.adminPin = newPin;
+  localStorage.setItem('THPT_EAHLEO_ADMIN_PIN', newPin);
+  saveLocalAdminData();
+
+  // Reset form inputs
+  document.getElementById('admin-current-pin').value = '';
+  document.getElementById('admin-new-pin').value = '';
+  document.getElementById('admin-confirm-pin').value = '';
+
+  showToast('🔒 Đã đổi mật khẩu Admin thành công!');
+  alert('✅ Đổi mật khẩu Admin thành công!\n\nQuan trọng: Hãy bấm nút "Xuất file data.js Cập Nhật" ở góc dưới bảng quản trị và tải lên GitHub để mật khẩu này được áp dụng vĩnh viễn trên mọi thiết bị!');
+}
+
+// Xuất file data.js 1-Click để Thầy tải về và up lên GitHub
+function exportDataJsFile() {
+  PORTFOLIO_DATA.adminPin = getAdminPin();
+  const content = '/**\n * PORTFOLIO DATA HUB - TRƯỜNG THPT EA H\'LEO\n * Cập nhật tự động từ Bảng Quản Trị Admin\n */\n\nconst PORTFOLIO_DATA = ' + JSON.stringify(PORTFOLIO_DATA, null, 2) + ';\n';
+  const blob = new Blob([content], { type: 'application/javascript;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'data.js';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  showToast('📥 Đã tải file data.js! Hãy kéo thả vào GitHub để cập nhật web!');
+}
+
+function saveLocalAdminData() {
+  try {
+    PORTFOLIO_DATA.adminPin = getAdminPin();
+    localStorage.setItem('THPT_EAHLEO_PORTFOLIO_DATA', JSON.stringify(PORTFOLIO_DATA));
+  } catch (e) {}
+}
+
+function loadLocalAdminData() {
+  try {
+    const savedPin = localStorage.getItem('THPT_EAHLEO_ADMIN_PIN');
+    if (savedPin) {
+      PORTFOLIO_DATA.adminPin = savedPin;
+    }
+    const saved = localStorage.getItem('THPT_EAHLEO_PORTFOLIO_DATA');
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      if (parsed.systems && parsed.classes && parsed.studentLibrary) {
+        Object.assign(PORTFOLIO_DATA, parsed);
+        if (parsed.adminPin) {
+          PORTFOLIO_DATA.adminPin = parsed.adminPin;
+          localStorage.setItem('THPT_EAHLEO_ADMIN_PIN', parsed.adminPin);
+        }
+      }
+    }
+  } catch (e) {}
+}
+
+function resetAdminData() {
+  if (confirm('Bạn có chắc chắn muốn đặt lại dữ liệu và mật khẩu về mặc định gốc?')) {
+    localStorage.removeItem('THPT_EAHLEO_PORTFOLIO_DATA');
+    localStorage.removeItem('THPT_EAHLEO_ADMIN_PIN');
+    location.reload();
+  }
+}
+
 function closeModal(modalId) {
   const modal = document.getElementById(modalId);
   if (modal) {
@@ -482,7 +540,7 @@ function closeModal(modalId) {
   }
 }
 
-// 10. Event Listeners & Search
+// 8. Event Listeners & Search
 function setupEventListeners() {
   const searchInput = document.getElementById('top-search-input');
   if (searchInput) {
@@ -495,13 +553,13 @@ function setupEventListeners() {
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-      closeModal('register-tool-modal');
       closeModal('code-modal');
       closeModal('diagram-modal');
+      closeModal('admin-modal');
     }
   });
 
-  ['register-tool-modal', 'code-modal', 'diagram-modal'].forEach(id => {
+  ['code-modal', 'diagram-modal', 'admin-modal'].forEach(id => {
     const modal = document.getElementById(id);
     if (modal) {
       modal.addEventListener('click', (e) => {
@@ -512,16 +570,13 @@ function setupEventListeners() {
 }
 
 function resetFilters() {
-  activeCategory = 'all';
   currentSearchQuery = '';
   const searchInput = document.getElementById('top-search-input');
   if (searchInput) searchInput.value = '';
-  renderCategories();
   renderSystems();
   lucide.createIcons();
 }
 
-// 11. Copy to clipboard & Toast
 function copyToClipboard(text, successMessage) {
   navigator.clipboard.writeText(text).then(() => {
     showToast(successMessage || 'Đã sao chép vào bộ nhớ tạm!');
