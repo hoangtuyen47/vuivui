@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 350" width="100%" height="100%">
+  <defs>
+    <linearGradient id="esp-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="50%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0369a1"/>
+    </linearGradient>
+    <linearGradient id="pcb" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#047857"/>
+      <stop offset="100%" stop-color="#064e3b"/>
+    </linearGradient>
+    <linearGradient id="metal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#cbd5e1"/>
+      <stop offset="100%" stop-color="#64748b"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="350" fill="url(#esp-bg)"/>
+  
+  <!-- Circuit tracks background -->
+  <g opacity="0.15" stroke="#38bdf8" stroke-width="2" fill="none">
+    <path d="M 50 50 L 150 50 L 200 100 L 400 100 L 450 50 L 550 50"/>
+    <path d="M 50 300 L 150 300 L 200 250 L 400 250 L 450 300 L 550 300"/>
+    <circle cx="200" cy="100" r="5" fill="#38bdf8"/>
+    <circle cx="400" cy="100" r="5" fill="#38bdf8"/>
+  </g>
+
+  <!-- ESP32 Board Illustration -->
+  <g transform="translate(160, 45)">
+    <!-- Board PCB -->
+    <rect x="0" y="0" width="280" height="260" rx="16" fill="url(#pcb)" stroke="#10b981" stroke-width="2.5" filter="drop-shadow(0 15px 25px rgba(0,0,0,0.6))"/>
+    
+    <!-- Wi-Fi Antenna -->
+    <path d="M 90 20 L 190 20 L 190 50 L 90 50 Z" fill="#b45309" stroke="#f59e0b" stroke-width="1.5"/>
+    <path d="M 100 25 L 180 25 M 100 35 L 180 35 M 100 45 L 180 45" stroke="#fef08a" stroke-width="2"/>
+
+    <!-- ESP-WROOM-32 Metal Shield -->
+    <rect x="65" y="70" width="150" height="130" rx="8" fill="url(#metal)" stroke="#94a3b8" stroke-width="1.5"/>
+    <text x="140" y="115" font-family="'JetBrains Mono', monospace" font-size="16" font-weight="900" fill="#0f172a" text-anchor="middle">ESP-WROOM-32</text>
+    <text x="140" y="140" font-family="sans-serif" font-size="11" font-weight="bold" fill="#334155" text-anchor="middle">Wi-Fi + BLE IoT SoC</text>
+    <path d="M 125 155 Q 140 145 155 155 M 130 162 Q 140 155 150 162 M 137 170 Q 140 167 143 170" fill="none" stroke="#dc2626" stroke-width="2"/>
+
+    <!-- Pins -->
+    <rect x="15" y="40" width="12" height="180" fill="#1e293b" stroke="#64748b"/>
+    <rect x="253" y="40" width="12" height="180" fill="#1e293b" stroke="#64748b"/>
+    
+    <!-- Micro USB -->
+    <rect x="110" y="240" width="60" height="25" rx="4" fill="#94a3b8"/>
+
+    <!-- Red and Blue LED -->
+    <circle cx="50" cy="225" r="5" fill="#ef4444"/>
+    <circle cx="230" cy="225" r="5" fill="#3b82f6"/>
+  </g>
+
+  <!-- Title Badge -->
+  <rect x="40" y="280" width="520" height="45" rx="10" fill="rgba(15, 23, 42, 0.85)" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="300" y="308" font-family="'Be Vietnam Pro', sans-serif" font-size="16" font-weight="800" fill="#ffffff" text-anchor="middle">
+    LẬP TRÌNH IOT &amp; SMARTHOME VỚI ESP32
+  </text>
+</svg>

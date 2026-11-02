@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 250" width="100%" height="100%">
+  <defs>
+    <!-- Deep Red Wine Gradient -->
+    <linearGradient id="bg-banner-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#701212"/>
+      <stop offset="25%" stop-color="#8c1818"/>
+      <stop offset="55%" stop-color="#a81f1f"/>
+      <stop offset="80%" stop-color="#931a1a"/>
+      <stop offset="100%" stop-color="#6b1010"/>
+    </linearGradient>
+
+    <!-- Golden Text Gradient -->
+    <linearGradient id="gold-text-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fff59d"/>
+      <stop offset="50%" stop-color="#facc15"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+
+    <!-- Dong Son Drum Pattern Overlay -->
+    <pattern id="dong-son-drum" x="0" y="0" width="200" height="200" patternUnits="userSpaceOnUse" opacity="0.12">
+      <circle cx="100" cy="100" r="90" fill="none" stroke="#facc15" stroke-width="2"/>
+      <circle cx="100" cy="100" r="75" fill="none" stroke="#facc15" stroke-width="1.5" stroke-dasharray="4,4"/>
+      <circle cx="100" cy="100" r="60" fill="none" stroke="#facc15" stroke-width="2"/>
+      <circle cx="100" cy="100" r="45" fill="none" stroke="#facc15" stroke-width="1.5" stroke-dasharray="3,3"/>
+      <circle cx="100" cy="100" r="25" fill="none" stroke="#facc15" stroke-width="2"/>
+      <polygon points="100,75 106,94 125,100 106,106 100,125 94,106 75,100 94,94" fill="#facc15"/>
+    </pattern>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="1920" height="250" fill="url(#bg-banner-grad)"/>
+  
+  <!-- Dong Son Texture on Left and Right -->
+  <rect x="0" y="0" width="500" height="250" fill="url(#dong-son-drum)"/>
+  <rect x="1420" y="0" width="500" height="250" fill="url(#dong-son-drum)"/>
+
+  <!-- Subtle Light Glow in center -->
+  <circle cx="960" cy="125" r="400" fill="#facc15" opacity="0.08"/>
+
+  <!-- Left: School Crest Logo -->
+  <g transform="translate(80, 25)">
+    <!-- Outer white border circle -->
+    <circle cx="100" cy="100" r="96" fill="#ffffff" stroke="#991b1b" stroke-width="6"/>
+    <circle cx="100" cy="100" r="88" fill="none" stroke="#dc2626" stroke-width="2"/>
+
+    <!-- School text path in circle -->
+    <path id="crest-text-top" d="M 22,100 A 78,78 0 0,1 178,100" fill="none"/>
+    <text font-family="'Be Vietnam Pro', Arial, sans-serif" font-size="10.5" font-weight="900" fill="#991b1b" letter-spacing="1.5">
+      <textPath href="#crest-text-top" startOffset="50%" text-anchor="middle">
+        TRƯỜNG THPT EA H'LEO
+      </textPath>
+    </text>
+
+    <path id="crest-text-bot" d="M 178,100 A 78,78 0 0,1 22,100" fill="none"/>
+    <text font-family="'Be Vietnam Pro', Arial, sans-serif" font-size="9.5" font-weight="bold" fill="#991b1b" letter-spacing="2">
+      <textPath href="#crest-text-bot" startOffset="50%" text-anchor="middle">
+        ĐẮK LẮK • 2026 - 2027
+      </textPath>
+    </text>
+
+    <!-- Inner Blue Disc -->
+    <circle cx="100" cy="100" r="64" fill="#0284c7"/>
+
+    <!-- Open Book & Torch of Education -->
+    <path d="M 100,115 Q 82,104 60,106 Q 60,128 100,136 Q 140,128 140,106 Q 118,104 100,115 Z" fill="#ffffff"/>
+    <path d="M 100,115 L 100,136" stroke="#0284c7" stroke-width="2"/>
+    <polygon points="100,58 95,88 105,88" fill="#facc15" stroke="#eab308" stroke-width="1"/>
+    <path d="M 100,48 Q 110,60 105,74 Q 100,68 98,76 Q 92,66 100,48 Z" fill="#ef4444"/>
+    <path d="M 100,54 Q 105,62 102,70 Q 100,66 100,54 Z" fill="#fef08a"/>
+    <text x="100" y="100" font-family="'Be Vietnam Pro', sans-serif" font-size="9.5" font-weight="900" fill="#ffffff" text-anchor="middle">G &amp; D</text>
+  </g>
+
+  <!-- Center Left: Formal School Title -->
+  <g transform="translate(310, 0)">
+    <text x="0" y="65" font-family="'Be Vietnam Pro', Arial, sans-serif" font-size="22" font-weight="700" fill="#fee2e2" letter-spacing="1">
+      SỞ GIÁO DỤC VÀ ĐÀO TẠO ĐẮK LẮK
+    </text>
+    <text x="0" y="128" font-family="'Be Vietnam Pro', Arial, sans-serif" font-size="52" font-weight="900" fill="url(#gold-text-grad)" letter-spacing="2" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.5))">
+      TRƯỜNG THPT EA H'LEO
+    </text>
+    <text x="0" y="180" font-family="'Be Vietnam Pro', Arial, sans-serif" font-size="19" font-weight="500" fill="#fecaca">
+      Địa chỉ: 31 Điện Biên Phủ - Xã Ea Drăng - Huyện Ea H'leo - Tỉnh Đắk Lắk
+    </text>
+    <text x="0" y="215" font-family="'Be Vietnam Pro', Arial, sans-serif" font-size="16" font-weight="600" fill="#fef08a">
+      Website: c3eahleo.daklak.edu.vn • Đổi mới giáo dục &amp; Chuyển đổi số toàn diện
+    </text>
+  </g>
+
+  <!-- Right Divider Accent -->
+  <line x1="1260" y1="35" x2="1260" y2="215" stroke="rgba(254,226,226,0.3)" stroke-width="2"/>
+
+  <!-- Right: Teacher & Digital Hub Title -->
+  <g transform="translate(1300, 0)">
+    <!-- Badge -->
+    <rect x="0" y="40" width="220" height="32" rx="16" fill="#facc15"/>
+    <text x="110" y="62" font-family="'Be Vietnam Pro', sans-serif" font-size="13" font-weight="900" fill="#78350f" text-anchor="middle" letter-spacing="1">
+      CHUYỂN ĐỔI SỐ GD
+    </text>
+
+    <!-- Main Title -->
+    <text x="0" y="118" font-family="'Be Vietnam Pro', Arial, sans-serif" font-size="30" font-weight="900" fill="#ffffff" letter-spacing="1" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.6))">
+      CỔNG TIỆN ÍCH &amp; HỆ THỐNG
+    </text>
+    <text x="0" y="156" font-family="'Be Vietnam Pro', Arial, sans-serif" font-size="24" font-weight="800" fill="#fde047" letter-spacing="0.5">
+      TRỢ LÝ GIẢNG DẠY &amp; STEM
+    </text>
+    <text x="0" y="198" font-family="'Be Vietnam Pro', Arial, sans-serif" font-size="18" font-weight="700" fill="#ffffff">
+      Thầy Hoàng Ngọc Tuyên <tspan font-weight="400" fill="#cbd5e1">• Năm học 2026 - 2027</tspan>
+    </text>
+  </g>
+</svg>
