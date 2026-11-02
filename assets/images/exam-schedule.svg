@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-sched" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080c16"/>
+      <stop offset="50%" stop-color="#11192e"/>
+      <stop offset="100%" stop-color="#0b1220"/>
+    </linearGradient>
+    <linearGradient id="accent-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#818cf8"/>
+      <stop offset="100%" stop-color="#4f46e5"/>
+    </linearGradient>
+    <linearGradient id="gold-s" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fde047"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg-sched)"/>
+  
+  <g transform="translate(80, 50)">
+    <rect width="640" height="340" rx="20" fill="rgba(17, 24, 39, 0.85)" stroke="rgba(129, 140, 248, 0.4)" stroke-width="2" filter="drop-shadow(0 20px 40px rgba(0,0,0,0.7))"/>
+    
+    <rect width="640" height="60" rx="20" fill="#1e1b4b"/>
+    <text x="30" y="38" fill="#ffffff" font-family="'Outfit', sans-serif" font-size="18" font-weight="bold">XẾP LỊCH THI TỐT NGHIỆP THPT (PHƯƠNG ÁN 2 + 2)</text>
+    <rect x="500" y="15" width="110" height="30" rx="8" fill="url(#gold-s)"/>
+    <text x="555" y="35" fill="#070b14" font-family="sans-serif" font-size="12" font-weight="900" text-anchor="middle">TỐI ƯU AI</text>
+
+    <rect x="25" y="75" width="130" height="35" rx="8" fill="rgba(255,255,255,0.05)"/>
+    <text x="90" y="98" fill="#94a3b8" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">CA THI</text>
+
+    <rect x="165" y="75" width="215" height="35" rx="8" fill="rgba(255,255,255,0.05)"/>
+    <text x="272" y="98" fill="#94a3b8" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">2 MÔN BẮT BUỘC (2)</text>
+
+    <rect x="390" y="75" width="225" height="35" rx="8" fill="rgba(255,255,255,0.05)"/>
+    <text x="502" y="98" fill="#94a3b8" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">2 MÔN TỰ CHỌN (2)</text>
+
+    <g transform="translate(25, 120)">
+      <rect width="130" height="55" rx="10" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.07)"/>
+      <text x="65" y="33" fill="#38bdf8" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">Buổi 1: Sáng</text>
+
+      <rect x="140" width="215" height="55" rx="10" fill="rgba(56, 189, 248, 0.1)" stroke="#38bdf8" stroke-width="1.5"/>
+      <text x="247" y="33" fill="#ffffff" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Toán Học (90 phút)</text>
+
+      <rect x="365" width="225" height="55" rx="10" fill="rgba(16, 185, 129, 0.1)" stroke="#10b981" stroke-width="1.5"/>
+      <text x="477" y="27" fill="#34d399" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Vật lí / Hóa học / Lịch sử</text>
+      <text x="477" y="44" fill="#94a3b8" font-family="sans-serif" font-size="11" text-anchor="middle">Phân phòng tự động không trùng</text>
+    </g>
+
+    <g transform="translate(25, 185)">
+      <rect width="130" height="55" rx="10" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.07)"/>
+      <text x="65" y="33" fill="#a855f7" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">Buổi 2: Chiều</text>
+
+      <rect x="140" width="215" height="55" rx="10" fill="rgba(168, 85, 247, 0.1)" stroke="#a855f7" stroke-width="1.5"/>
+      <text x="247" y="33" fill="#ffffff" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Ngữ Văn (120 phút)</text>
+
+      <rect x="365" width="225" height="55" rx="10" fill="rgba(245, 208, 97, 0.1)" stroke="#f5d061" stroke-width="1.5"/>
+      <text x="477" y="27" fill="#fde047" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Tin học / Sinh học / Địa lí</text>
+      <text x="477" y="44" fill="#94a3b8" font-family="sans-serif" font-size="11" text-anchor="middle">In phiếu thu bài &amp; SBD 1-click</text>
+    </g>
+
+    <g transform="translate(25, 255)">
+      <rect width="590" height="60" rx="12" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)"/>
+      <text x="25" y="36" fill="#10b981" font-size="16" font-weight="bold">✓ 0 Lỗi Trùng Ca</text>
+      <text x="220" y="36" fill="#f5d061" font-size="16" font-weight="bold">✓ Tối Thiểu Phòng Thi</text>
+      <text x="430" y="36" fill="#38bdf8" font-size="16" font-weight="bold">✓ Chuẩn Quy Chế BGD</text>
+    </g>
+  </g>
+</svg>
