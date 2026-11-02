@@ -1,23 +1,18 @@
 /* ==========================================================================
-   STYLE SYSTEM: CỔNG THÔNG TIN ĐIỆN TỬ THPT EA H'LEO
-   Phong cách chuẩn website trường học: Tươi sáng, Trang trọng, Hiện đại
-   Font: Be Vietnam Pro + Inter
-   Bảng màu: Đỏ truyền thống (#c82333 / #8e1818), Trắng tinh khôi, Nền xám nhạt (#f4f6f9)
+   STYLE SYSTEM: CỔNG THÔNG TIN ĐIỆN TỬ TRƯỜNG THPT EA H'LEO
+   Phong cách chuẩn: NỀN TRẮNG SÁNG, ĐIỂM NHẤN ĐỎ CỜ TRUYỀN THỐNG
+   Nhất quán 100% theo giao diện Cổng thông tin c3eahleo.daklak.edu.vn
    ========================================================================== */
 
 :root {
   --primary-red: #c82333;
-  --primary-darkred: #8e1818;
-  --primary-lightred: #fef2f2;
-  --accent-gold: #f59e0b;
-  --accent-blue: #0284c7;
-  --accent-green: #10b981;
-  --bg-page: #f4f6f9;
+  --dark-red: #8e1818;
+  --hover-red: #a71d2a;
+  --bg-page: #f8fafc;
   --bg-card: #ffffff;
-  --border-color: #e2e8f0;
-  --text-heading: #1e293b;
-  --text-body: #475569;
-  --text-muted: #64748b;
+  --border-light: #e2e8f0;
+  --text-main: #0f172a;
+  --text-muted: #475569;
 }
 
 * {
@@ -29,11 +24,13 @@ html {
 }
 
 body {
-  font-family: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  background-color: var(--bg-page);
-  color: var(--text-body);
+  font-family: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  background-color: #f8fafc !important;
+  color: #1e293b !important;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  margin: 0;
+  padding: 0;
 }
 
 /* Custom Scrollbar */
@@ -59,7 +56,7 @@ body {
   justify-content: space-between;
   border-bottom: 2px solid #f1f5f9;
   padding-bottom: 8px;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
 .section-title {
@@ -69,7 +66,7 @@ body {
   font-family: 'Be Vietnam Pro', sans-serif;
   font-weight: 800;
   font-size: 0.95rem;
-  color: var(--text-heading);
+  color: #0f172a !important;
   text-transform: uppercase;
   letter-spacing: 0.3px;
 }
@@ -83,10 +80,10 @@ body {
   border-radius: 2px;
 }
 
-/* Card Container Styles */
+/* White Card Containers */
 .portal-card {
-  background: #ffffff;
-  border: 1px solid var(--border-color);
+  background-color: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
   border-radius: 12px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   transition: all 0.25s ease-in-out;
@@ -94,12 +91,12 @@ body {
 
 .portal-card:hover {
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-  border-color: #cbd5e1;
+  border-color: #cbd5e1 !important;
 }
 
 .portal-card-interactive {
-  background: #ffffff;
-  border: 1px solid var(--border-color);
+  background-color: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
   border-radius: 12px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
@@ -107,27 +104,27 @@ body {
 
 .portal-card-interactive:hover {
   transform: translateY(-3px);
-  border-color: #fca5a5;
+  border-color: #fca5a5 !important;
   box-shadow: 0 8px 24px rgba(200, 35, 51, 0.12);
 }
 
-/* Red Banner Gradient */
+/* Red Banner & Nav Gradients */
 .school-banner-gradient {
-  background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 45%, #b91c1c 80%, #dc2626 100%);
+  background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 45%, #b91c1c 80%, #dc2626 100%) !important;
 }
 
 .school-nav-gradient {
-  background: linear-gradient(90deg, #b91c1c 0%, #c82333 50%, #dc2626 100%);
+  background: linear-gradient(90deg, #b91c1c 0%, #c82333 50%, #dc2626 100%) !important;
 }
 
-/* Tool Image Wrapper */
+/* Tool Image Thumbnail */
 .tool-thumb-wrapper {
   position: relative;
   height: 175px;
   overflow: hidden;
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
-  background: #111827;
+  background: #f1f5f9;
 }
 
 .tool-thumb-wrapper img, .tool-thumb-wrapper svg {
@@ -144,54 +141,54 @@ body {
 
 /* Badges */
 .badge-red {
-  background: #fee2e2;
-  color: #991b1b;
-  border: 1px solid #fecaca;
+  background-color: #fee2e2 !important;
+  color: #991b1b !important;
+  border: 1px solid #fecaca !important;
 }
 
 .badge-amber {
-  background: #fef3c7;
-  color: #92400e;
-  border: 1px solid #fde68a;
+  background-color: #fef3c7 !important;
+  color: #92400e !important;
+  border: 1px solid #fde68a !important;
 }
 
 .badge-blue {
-  background: #e0f2fe;
-  color: #075985;
-  border: 1px solid #bae6fd;
+  background-color: #e0f2fe !important;
+  color: #075985 !important;
+  border: 1px solid #bae6fd !important;
 }
 
 .badge-emerald {
-  background: #dcfce7;
-  color: #166534;
-  border: 1px solid #bbf7d0;
+  background-color: #dcfce7 !important;
+  color: #166534 !important;
+  border: 1px solid #bbf7d0 !important;
 }
 
 /* Buttons */
 .btn-primary-red {
-  background-color: var(--primary-red);
-  color: #ffffff;
+  background-color: var(--primary-red) !important;
+  color: #ffffff !important;
   font-weight: 700;
   transition: all 0.2s ease;
 }
 
 .btn-primary-red:hover {
-  background-color: #b01f2e;
+  background-color: var(--hover-red) !important;
   box-shadow: 0 4px 12px rgba(200, 35, 51, 0.3);
 }
 
 .btn-secondary-light {
-  background-color: #f8fafc;
-  color: #334155;
-  border: 1px solid #e2e8f0;
+  background-color: #f8fafc !important;
+  color: #334155 !important;
+  border: 1px solid #cbd5e1 !important;
   font-weight: 600;
   transition: all 0.2s ease;
 }
 
 .btn-secondary-light:hover {
-  background-color: #f1f5f9;
-  color: #0f172a;
-  border-color: #cbd5e1;
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+  border-color: #94a3b8 !important;
 }
 
 /* Modal styling */

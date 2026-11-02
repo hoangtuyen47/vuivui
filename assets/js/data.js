@@ -1,12 +1,13 @@
 /**
  * PORTFOLIO DATA HUB - TRƯỜNG THPT EA H'LEO
  * Phối màu & Cấu trúc đồng bộ với Cổng thông tin điện tử Trường THPT Ea H'leo
+ * Tông màu: Nền trắng, điểm nhấn đỏ cờ truyền thống (#c82333 / #8e1818)
  */
 
 const PORTFOLIO_DATA = {
   // Thông tin tác giả & Giáo viên
   profile: {
-    fullName: "Thầy Nguyễn Văn Cường",
+    fullName: "Thầy Hoàng Ngọc Tuyên",
     school: "Trường THPT Ea H'leo",
     dept: "Sở Giáo dục và Đào tạo Đắk Lắk",
     address: "31 Điện Biên Phủ, Thị trấn Ea Drăng, Huyện Ea H'leo, Tỉnh Đắk Lắk",
@@ -21,8 +22,8 @@ const PORTFOLIO_DATA = {
     },
     contacts: {
       phone: "0912.345.xxx",
-      email: "cuongit.eahleo@gmail.com",
-      github: "https://github.com",
+      email: "hoangtuyen.eahleo@gmail.com",
+      github: "https://github.com/hoangtuyen47",
       zalo: "https://zalo.me",
       facebook: "https://facebook.com",
       schoolWeb: "http://c3eahleo.daklak.edu.vn"
@@ -63,7 +64,7 @@ const PORTFOLIO_DATA = {
     {
       author: "Em Lê Minh Khôi",
       role: "Học sinh 11A1 (Giải Nhì KHKT Tỉnh)",
-      comment: "Nhờ kho mã nguồn Arduino và hướng dẫn sơ đồ nối dây của thầy Cường, nhóm em đã tự tin lập trình và hoàn thiện mô hình trạm quan trắc thông minh đạt giải cấp tỉnh.",
+      comment: "Nhờ kho mã nguồn Arduino và hướng dẫn sơ đồ nối dây của thầy Tuyên, nhóm em đã tự tin lập trình và hoàn thiện mô hình trạm quan trắc thông minh đạt giải cấp tỉnh.",
       stars: 5,
       date: "Kỳ thi KHKT 2026"
     }
@@ -97,10 +98,10 @@ const PORTFOLIO_DATA = {
         "Xuất báo cáo tổng kết thi đua, biên bản vi phạm định dạng PDF & Excel chuẩn Bộ GD&ĐT",
         "Tối ưu hóa chạy mượt mà trên di động (PWA), hỗ trợ ghim màn hình chính"
       ],
-      demoLink: "https://script.google.com/macros/s/AKfycbz_nenep_sample/exec",
+      demoLink: "https://script.google.com/macros/s/AKfycbxLKgD3-0YyeMnq00ZdT1j8o5wv0VqAI6W0uVsuaYWbBTZbgaVKMh3Y7qiQPn7fUWDN/exec",
       credentials: [
         { role: "Ban Giám Hiệu / Quản trị", username: "admin", password: "nenhiep@2026", note: "Toàn quyền quản trị, phê duyệt & xuất báo cáo" },
-        { role: "Giáo viên chủ nhiệm (GVCN)", username: "gvcn12a1", password: "gvcn@123", note: "Theo dõi lớp chủ nhiệm, phản ánh vi phạm" },
+        { role: "Giáo viên chủ nhiệm (GVCN)", username: "gvcn11a2", password: "gvcn@123", note: "Theo dõi lớp chủ nhiệm, phản ánh vi phạm" },
         { role: "Đội Cờ Đỏ / Giám thị", username: "codo01", password: "codo@2026", note: "Chấm điểm trực tiếp giờ truy bài & nề nếp" }
       ]
     },
@@ -237,10 +238,9 @@ const PORTFOLIO_DATA = {
       hardware: ["Arduino Uno R3", "3x Đèn LED (Đỏ, Vàng, Xanh)", "3x Điện trở 220Ω", "1x Nút bấm Push Button", "Breadboard"],
       wiringGuide: "LED Đỏ -> Pin 11 | LED Vàng -> Pin 12 | LED Xanh -> Pin 13 | Nút bấm -> Pin 2 (INPUT_PULLUP)",
       diagramImage: "assets/images/circuit-arduino.svg",
-      downloadDocs: "Tai_Lieu_STEM_Den_Giao_Thong.pdf",
       codeSnippet: `// ==========================================
 // DỰ ÁN STEM: ĐÈN GIAO THÔNG THÔNG MINH
-// Giáo viên hướng dẫn: Thầy Nguyễn Văn Cường
+// Giáo viên hướng dẫn: Thầy Hoàng Ngọc Tuyên
 // Trường THPT Ea H'leo
 // ==========================================
 
@@ -314,7 +314,6 @@ void handlePedestrianCrossing() {
       hardware: ["Arduino Uno / Nano", "Cảm biến khoảng cách HC-SR04", "Động cơ Servo SG90", "Nguồn 5V"],
       wiringGuide: "HC-SR04 VCC -> 5V | GND -> GND | Trig -> Pin 9 | Echo -> Pin 10 | Servo Signal -> Pin 6",
       diagramImage: "assets/images/circuit-arduino.svg",
-      downloadDocs: "Huong_Dan_Lap_Rap_Thung_Rac_STEM.pdf",
       codeSnippet: `// ====================================================
 // THÙNG RÁC THÔNG MINH TỰ ĐỘNG - THPT EA H'LEO
 // ====================================================
@@ -371,7 +370,6 @@ void loop() {
       hardware: ["Board ESP32 NodeMCU", "Cảm biến nhiệt ẩm DHT11", "Màn hình OLED 0.96 inch I2C", "Cáp micro USB"],
       wiringGuide: "DHT11 Data -> GPIO 4 | OLED SDA -> GPIO 21 | OLED SCL -> GPIO 22 | VCC -> 3.3V | GND -> GND",
       diagramImage: "assets/images/circuit-arduino.svg",
-      downloadDocs: "Giao_Trinh_ESP32_IoT_Can_Ban.pdf",
       codeSnippet: `// ====================================================
 // ESP32 IOT WEATHER STATION - THPT EA H'LEO
 // ====================================================
@@ -434,10 +432,9 @@ void loop() {
       hardware: ["Máy tính có Webcam", "Python 3.10+", "Cài đặt: pip install opencv-python mediapipe"],
       wiringGuide: "Chạy trực tiếp trên máy vi tính phòng máy trường THPT Ea H'leo",
       diagramImage: "assets/images/circuit-arduino.svg",
-      downloadDocs: "Chuyen_De_AI_OpenCV_Tin_Hoc.pdf",
       codeSnippet: `# ====================================================
 # DỰ ÁN STEM TIN HỌC: NHẬN DIỆN CỬ CHỈ BÀN TAY (AI)
-# Giáo viên hướng dẫn: Thầy Nguyễn Văn Cường
+# Giáo viên hướng dẫn: Thầy Hoàng Ngọc Tuyên
 # ====================================================
 import cv2
 import mediapipe as mp

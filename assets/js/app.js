@@ -1,6 +1,7 @@
 /**
  * APP LOGIC: TRƯỜNG THPT EA H'LEO
  * Bố cục 3 cột: Cột trái (Thông tin & Đánh giá) | Cột giữa (Hệ thống dạy học) | Cột phải (Kho học liệu học sinh)
+ * Tông màu: Nền trắng sáng, viền slate, điểm nhấn đỏ cờ #c82333
  */
 
 let activeCategory = 'all';
@@ -44,7 +45,7 @@ function renderLeftColumn() {
   if (roleEl) roleEl.textContent = p.role;
 
   const schoolEl = document.getElementById('profile-school');
-  if (schoolEl) schoolEl.textContent = p.school;
+  if (schoolEl) schoolEl.textContent = `${p.school} • ${p.dept}`;
 
   const bioEl = document.getElementById('profile-bio');
   if (bioEl) bioEl.textContent = p.bio;
@@ -80,14 +81,14 @@ function renderLeftColumn() {
   const reviewsContainer = document.getElementById('reviews-container');
   if (reviewsContainer && PORTFOLIO_DATA.reviews) {
     reviewsContainer.innerHTML = PORTFOLIO_DATA.reviews.map(r => `
-      <div class="p-3 rounded-lg bg-slate-50 border border-slate-200 text-xs space-y-1.5 hover:bg-red-50/40 hover:border-red-200 transition-colors">
+      <div class="p-3 rounded-lg bg-slate-50 border border-slate-200/90 text-xs space-y-1.5 hover:bg-red-50/40 hover:border-red-200 transition-colors">
         <div class="flex items-center justify-between">
           <div class="flex items-center gap-1.5">
             <span class="w-6 h-6 rounded-full bg-red-100 text-red-700 font-bold flex items-center justify-center text-[10px]">
               ${r.author.charAt(0)}
             </span>
             <div>
-              <p class="font-bold text-slate-800 leading-tight">${escapeHtml(r.author)}</p>
+              <p class="font-bold text-slate-900 leading-tight">${escapeHtml(r.author)}</p>
               <p class="text-[10px] text-slate-500">${escapeHtml(r.role)}</p>
             </div>
           </div>
@@ -95,7 +96,7 @@ function renderLeftColumn() {
             ${'★'.repeat(r.stars)}
           </div>
         </div>
-        <p class="text-slate-600 text-[11.5px] italic leading-relaxed">
+        <p class="text-slate-700 text-[11.5px] italic leading-relaxed">
           "${escapeHtml(r.comment)}"
         </p>
       </div>
@@ -116,7 +117,7 @@ function renderCategories() {
   navEl.innerHTML = PORTFOLIO_DATA.categories.map(c => {
     const isActive = c.id === activeCategory;
     const activeClass = isActive
-      ? 'bg-red-700 text-white shadow-xs font-bold'
+      ? 'bg-red-600 text-white shadow-xs font-bold'
       : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200';
 
     return `
@@ -125,7 +126,7 @@ function renderCategories() {
         class="px-3 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1.5 transition-all ${activeClass}">
         <i data-lucide="${c.icon}" class="w-3.5 h-3.5"></i>
         <span>${escapeHtml(c.name)}</span>
-        <span class="text-[10px] px-1.5 py-0.2 rounded-full ${isActive ? 'bg-red-900/60 text-white' : 'bg-slate-100 text-slate-600'}">
+        <span class="text-[10px] px-1.5 py-0.2 rounded-full ${isActive ? 'bg-red-800 text-white' : 'bg-slate-100 text-slate-600'}">
           ${getCategoryCount(c.id)}
         </span>
       </button>
@@ -183,7 +184,7 @@ function renderSystems() {
     container.innerHTML = `
       <div class="col-span-full py-12 text-center p-6 bg-white rounded-xl border border-slate-200">
         <i data-lucide="search-x" class="w-10 h-10 text-slate-400 mx-auto mb-2"></i>
-        <p class="font-bold text-slate-700 text-sm">Không tìm thấy công cụ phù hợp</p>
+        <p class="font-bold text-slate-800 text-sm">Không tìm thấy công cụ phù hợp</p>
         <p class="text-xs text-slate-500 mt-1">Vui lòng thử tìm với từ khóa khác (ví dụ: nề nếp, thi cử, 3D...)</p>
         <button onclick="resetFilters()" class="mt-3 px-3 py-1.5 bg-red-600 text-white text-xs font-semibold rounded-lg hover:bg-red-700 transition-colors">
           Xem lại tất cả công cụ
@@ -196,41 +197,43 @@ function renderSystems() {
   container.innerHTML = filtered.map(sys => {
     const badgeClass = getBadgeClass(sys.badgeColor);
     return `
-      <div class="portal-card-interactive flex flex-col justify-between overflow-hidden group">
+      <div class="portal-card-interactive bg-white border border-slate-200 rounded-xl overflow-hidden flex flex-col justify-between shadow-xs hover:border-red-300 transition-all group">
         <!-- Thumbnail -->
-        <div class="tool-thumb-wrapper">
+        <div class="tool-thumb-wrapper bg-slate-100 relative">
           <img src="${sys.image}" alt="${escapeHtml(sys.title)}" loading="lazy" class="w-full h-full object-cover">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-          
-          <div class="absolute top-2.5 left-2.5 right-2.5 flex items-center justify-between">
-            <span class="px-2 py-0.5 text-[10.5px] font-bold rounded ${badgeClass}">
+          <div class="absolute top-2.5 left-2.5 flex items-center gap-1.5">
+            <span class="px-2 py-0.5 text-[10.5px] font-bold rounded ${badgeClass} shadow-xs">
               ${escapeHtml(sys.badge)}
             </span>
-            <span class="px-2 py-0.5 text-[10px] font-semibold rounded bg-white/95 text-slate-700 shadow-xs flex items-center gap-1">
+          </div>
+          <div class="absolute top-2.5 right-2.5">
+            <span class="px-2 py-0.5 text-[10px] font-semibold rounded bg-white/95 text-slate-700 shadow-xs flex items-center gap-1 border border-slate-200/80">
               <span class="w-2 h-2 rounded-full bg-emerald-500"></span> Trực tuyến
             </span>
-          </div>
-
-          <div class="absolute bottom-2.5 left-3 right-3 text-white">
-            <p class="text-[10px] font-bold uppercase tracking-wider text-amber-300 drop-shadow-sm">${getCategoryName(sys.categoryId)}</p>
-            <h4 class="font-bold text-sm sm:text-base leading-snug drop-shadow-md text-white line-clamp-1">
-              ${escapeHtml(sys.title)}
-            </h4>
           </div>
         </div>
 
         <!-- Body -->
         <div class="p-4 flex-1 flex flex-col justify-between space-y-3">
-          <div class="space-y-2">
-            <p class="text-xs text-slate-600 line-clamp-2 leading-relaxed">
+          <div class="space-y-1.5">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-red-700 block">
+              ${getCategoryName(sys.categoryId)}
+            </span>
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-snug group-hover:text-red-700 transition-colors line-clamp-2">
+              ${escapeHtml(sys.title)}
+            </h4>
+            <p class="text-[11px] text-slate-500 italic line-clamp-1">
+              ${escapeHtml(sys.subtitle)}
+            </p>
+            <p class="text-xs text-slate-600 line-clamp-2 leading-relaxed pt-1">
               ${escapeHtml(sys.description)}
             </p>
 
-            <div class="space-y-1 pt-1.5 border-t border-slate-100">
-              <p class="text-[10.5px] font-bold text-slate-700 uppercase flex items-center gap-1">
-                <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i> Tính năng nổi bật:
+            <div class="space-y-1 pt-2 border-t border-slate-100">
+              <p class="text-[10.5px] font-bold text-slate-800 uppercase flex items-center gap-1">
+                <i data-lucide="check-circle" class="w-3.5 h-3.5 text-red-600"></i> Tính năng nổi bật:
               </p>
-              <ul class="text-[11.5px] text-slate-600 space-y-1">
+              <ul class="text-[11.5px] text-slate-700 space-y-1">
                 ${sys.features.slice(0, 3).map(f => `
                   <li class="flex items-start gap-1.5">
                     <span class="text-red-600 font-bold">•</span>
@@ -254,7 +257,7 @@ function renderSystems() {
               href="${sys.demoLink}" 
               target="_blank" 
               rel="noopener noreferrer"
-              class="flex-1 py-2 px-2.5 rounded-lg btn-primary-red text-xs flex items-center justify-center gap-1">
+              class="flex-1 py-2 px-2.5 rounded-lg btn-primary-red text-xs flex items-center justify-center gap-1 shadow-xs">
               <span>Trải nghiệm</span>
               <i data-lucide="external-link" class="w-3 h-3"></i>
             </a>
@@ -285,15 +288,15 @@ function renderStudentLibrary() {
   if (countEl) countEl.textContent = `${items.length} bài học`;
 
   container.innerHTML = items.map(item => `
-    <div class="p-3.5 rounded-xl bg-white border border-slate-200 hover:border-red-300 hover:shadow-sm transition-all space-y-2.5">
+    <div class="p-3.5 rounded-xl bg-white border border-slate-200 hover:border-red-300 hover:shadow-xs transition-all space-y-2">
       <div class="flex items-center justify-between gap-2">
-        <span class="px-2 py-0.5 text-[10px] font-bold rounded bg-sky-50 text-sky-800 border border-sky-200">
+        <span class="px-2 py-0.5 text-[10px] font-bold rounded bg-red-50 text-red-700 border border-red-200">
           ${escapeHtml(item.badge)}
         </span>
         <span class="text-[10px] text-slate-500">Mức độ: <strong class="text-red-700">${escapeHtml(item.difficulty)}</strong></span>
       </div>
 
-      <h5 class="font-bold text-xs sm:text-sm text-slate-800 leading-snug">
+      <h5 class="font-bold text-xs sm:text-sm text-slate-900 leading-snug">
         ${escapeHtml(item.title)}
       </h5>
 
@@ -301,8 +304,8 @@ function renderStudentLibrary() {
         ${escapeHtml(item.description)}
       </p>
 
-      <div class="p-2 rounded bg-slate-50 text-[10.5px] text-slate-600 border border-slate-100">
-        <span class="font-bold text-slate-700">⚡ Nối dây:</span> ${escapeHtml(item.wiringGuide)}
+      <div class="p-2 rounded bg-slate-50 text-[10.5px] text-slate-700 border border-slate-200/80">
+        <span class="font-bold text-slate-800">⚡ Nối dây:</span> ${escapeHtml(item.wiringGuide)}
       </div>
 
       <div class="flex items-center gap-2 pt-1">
@@ -315,7 +318,7 @@ function renderStudentLibrary() {
 
         <button 
           onclick="openDiagramModal('${item.id}')"
-          class="py-1.5 px-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-xs font-semibold flex items-center justify-center gap-1 transition-colors"
+          class="py-1.5 px-2 bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 rounded-lg text-xs font-semibold flex items-center justify-center gap-1 transition-colors"
           title="Xem sơ đồ nối chân">
           <i data-lucide="network" class="w-3.5 h-3.5 text-sky-600"></i>
           <span>Sơ đồ</span>
@@ -352,13 +355,13 @@ function openToolDetailModal(toolId) {
     </div>
 
     <!-- Body -->
-    <div class="p-4 sm:p-5 space-y-4 max-h-[70vh] overflow-y-auto bg-slate-50 text-slate-700">
+    <div class="p-4 sm:p-5 space-y-4 max-h-[70vh] overflow-y-auto bg-slate-50 text-slate-800">
       <!-- Description -->
-      <div class="space-y-1.5 bg-white p-3 rounded-lg border border-slate-200">
+      <div class="space-y-1.5 bg-white p-3.5 rounded-lg border border-slate-200">
         <h5 class="text-xs font-bold text-red-700 uppercase flex items-center gap-1.5">
           <i data-lucide="info" class="w-4 h-4"></i> Giới thiệu giải pháp
         </h5>
-        <p class="text-xs text-slate-600 leading-relaxed">
+        <p class="text-xs text-slate-700 leading-relaxed">
           ${escapeHtml(tool.description)}
         </p>
       </div>
@@ -366,7 +369,7 @@ function openToolDetailModal(toolId) {
       <!-- Credentials Box -->
       <div class="space-y-2">
         <div class="flex items-center justify-between">
-          <h5 class="text-xs font-bold text-slate-800 uppercase flex items-center gap-1.5">
+          <h5 class="text-xs font-bold text-slate-900 uppercase flex items-center gap-1.5">
             <i data-lucide="key" class="w-4 h-4 text-red-600"></i> Tài khoản trải nghiệm hệ thống
           </h5>
           <span class="text-[11px] text-slate-500 italic">Nhấp vào ô để sao chép nhanh</span>
@@ -376,7 +379,7 @@ function openToolDetailModal(toolId) {
           ${tool.credentials.map(c => `
             <div class="p-3 bg-white rounded-lg border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-2 hover:border-red-300 transition-colors">
               <div>
-                <span class="font-bold text-xs text-slate-800">${escapeHtml(c.role)}</span>
+                <span class="font-bold text-xs text-slate-900">${escapeHtml(c.role)}</span>
                 <p class="text-[11px] text-slate-500">${escapeHtml(c.note)}</p>
               </div>
 
@@ -405,11 +408,11 @@ function openToolDetailModal(toolId) {
       </div>
 
       <!-- Features -->
-      <div class="bg-white p-3 rounded-lg border border-slate-200 space-y-1.5">
-        <h5 class="text-xs font-bold text-slate-800 uppercase flex items-center gap-1.5">
+      <div class="bg-white p-3.5 rounded-lg border border-slate-200 space-y-1.5">
+        <h5 class="text-xs font-bold text-slate-900 uppercase flex items-center gap-1.5">
           <i data-lucide="list" class="w-4 h-4 text-red-600"></i> Các tính năng chính
         </h5>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-xs text-slate-600">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-xs text-slate-700">
           ${tool.features.map(f => `
             <div class="flex items-start gap-1.5">
               <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5"></i>
