@@ -3,65 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Hệ Thống Tiện Ích Giáo Dục - THPT Ea H'leo">
-  <meta name="theme-color" content="#070b14">
-  <link rel="apple-touch-icon" href="assets/images/teacher-avatar.svg">
-  <link rel="icon" type="image/svg+xml" href="assets/images/teacher-avatar.svg">
+  <meta name="theme-color" content="#c82333">
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo-c3eahleo.svg">
   <title>Cổng Tiện Ích & Hệ Thống Chuyển Đổi Số Giáo Dục | THPT Ea H'leo</title>
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
-  <!-- Google Fonts: Outfit + Inter -->
+  
+  <!-- Google Fonts: Be Vietnam Pro (Chuẩn Cổng thông tin Giáo dục Việt Nam) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Tailwind Configuration matching Quản lý nề nếp -->
   <script>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: {
-            sans: ['"Outfit"', '"Inter"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-            heading: ['"Outfit"', '"Inter"', 'sans-serif'],
-            mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Consolas', 'monospace']
+            sans: ['"Be Vietnam Pro"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            heading: ['"Be Vietnam Pro"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
           },
           colors: {
-            dark: {
-              900: '#070b14',
-              800: '#0b1120',
-              700: '#111827',
-              600: '#1f2937',
-              500: '#374151',
-            },
-            gold: {
-              300: '#fef08a',
-              400: '#facc15',
-              500: '#f5d061',
-              600: '#d4af37',
-              700: '#a16207',
-            },
-            emerald: {
-              400: '#34d399',
-              500: '#10b981',
-              600: '#059669',
-            },
-            sky: {
-              400: '#38bdf8',
-              500: '#0ea5e9',
-              600: '#0284c7',
+            school: {
+              red: '#c82333',
+              darkred: '#8e1818',
+              hoverred: '#b01f2e',
+              lightred: '#fef2f2',
+              gold: '#f59e0b',
             }
-          },
-          boxShadow: {
-            'glow-gold': '0 0 25px -3px rgba(245, 208, 97, 0.35)',
-            'glow-emerald': '0 0 25px -3px rgba(16, 185, 129, 0.35)',
-            'glow-sky': '0 0 25px -3px rgba(14, 165, 233, 0.35)',
-            'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.45)',
           }
         }
       }
@@ -72,277 +44,355 @@
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body class="antialiased min-h-screen flex flex-col font-sans text-slate-100">
+<body class="bg-[#f4f6f9] text-slate-700 font-sans antialiased min-h-screen flex flex-col">
 
   <!-- ========================================================================= -->
-  <!-- TOP STICKY NAVIGATION BAR -->
+  <!-- HEADER BANNER: CHUẨN CỔNG THÔNG TIN ĐIỆN TỬ TRƯỜNG THPT EA H'LEO -->
   <!-- ========================================================================= -->
-  <nav class="sticky top-0 z-40 bg-dark-900/90 backdrop-blur-xl border-b border-white/10 shadow-glass">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between py-3 gap-3">
-        <!-- Brand & School Logo -->
-        <a href="#" class="flex items-center gap-3 cursor-pointer group">
-          <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-gold-500 via-amber-400 to-amber-200 p-0.5 shadow-glow-gold flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
-            <div class="w-full h-full rounded-[14px] bg-dark-900 border border-gold-400/80 flex items-center justify-center overflow-hidden">
-              <i data-lucide="graduation-cap" class="w-5 h-5 text-gold-300"></i>
-            </div>
+  <header class="w-full text-white shadow-sm">
+    <!-- Red Wine Banner with School Identity -->
+    <div class="school-banner-gradient py-3.5 px-4 sm:px-6 lg:px-8 border-b border-red-900/40">
+      <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+        
+        <!-- Left: Logo & School Titles -->
+        <div class="flex items-center gap-3.5 sm:gap-4 text-center md:text-left">
+          <!-- Circular Logo -->
+          <div class="w-16 h-16 sm:w-20 sm:h-20 flex-shrink-0 drop-shadow-md">
+            <img src="assets/images/logo-c3eahleo.svg" alt="Logo THPT Ea H'leo" class="w-full h-full object-contain">
           </div>
-          <div>
-            <div class="flex items-center gap-2">
-              <h1 class="font-heading font-black text-sm sm:text-base tracking-wide text-white leading-tight">
-                THPT EA H'LEO
-              </h1>
-              <span class="px-2 py-0.5 text-[9px] font-extrabold uppercase rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
-                2026 - 2027
-              </span>
-            </div>
-            <p class="text-[11px] text-gold-400 font-medium">Hệ Thống Tiện Ích & Chuyển Đổi Số Giáo Dục</p>
+
+          <!-- Titles -->
+          <div class="space-y-0.5">
+            <p class="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-red-100">
+              SỞ GIÁO DỤC VÀ ĐÀO TẠO ĐẮK LẮK
+            </p>
+            <h1 class="text-xl sm:text-2xl md:text-3xl font-black uppercase tracking-wide text-yellow-300 drop-shadow-sm">
+              TRƯỜNG THPT EA H'LEO
+            </h1>
+            <p class="text-[11px] sm:text-xs text-red-100 font-normal flex items-center justify-center md:justify-start gap-1">
+              <i data-lucide="map-pin" class="w-3.5 h-3.5 text-yellow-300 shrink-0"></i>
+              <span>Địa chỉ: 31 Điện Biên Phủ - Xã Ea Drăng - Huyện Ea H'leo - Tỉnh Đắk Lắk</span>
+            </p>
           </div>
-        </a>
+        </div>
 
-        <!-- Quick Actions & GitHub Host Badge -->
-        <div class="flex items-center gap-2 sm:gap-3">
-          <a href="#student-library-section" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-sky-500/15 hover:bg-sky-500/25 text-sky-300 border border-sky-500/30 text-xs font-heading font-bold transition-all">
-            <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
-            <span>Thư viện học sinh</span>
-          </a>
+        <!-- Right: Portal Title & Teacher Badge -->
+        <div class="text-center md:text-right border-t md:border-t-0 pt-2 md:pt-0 border-red-800/60">
+          <span class="inline-block px-3 py-1 rounded-full bg-yellow-400 text-red-950 text-xs font-extrabold uppercase shadow-sm mb-1">
+            Chuyển Đổi Số Giáo Dục
+          </span>
+          <h2 class="text-sm sm:text-base font-bold text-white leading-tight">
+            CỔNG TIỆN ÍCH & TRỢ LÝ GIẢNG DẠY
+          </h2>
+          <p class="text-xs text-yellow-200">Thầy Nguyễn Văn Cường • Năm học 2026 - 2027</p>
+        </div>
 
-          <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-xl bg-dark-700 hover:bg-dark-600 text-slate-200 border border-white/10 text-xs font-heading font-medium flex items-center gap-1.5 transition-all">
-            <i data-lucide="github" class="w-3.5 h-3.5 text-gold-400"></i>
-            <span class="hidden md:inline">GitHub Pages</span>
-          </a>
+      </div>
+    </div>
 
-          <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="p-2 rounded-xl bg-gold-500/15 hover:bg-gold-500/25 text-gold-300 border border-gold-500/30 transition-all" title="Lên đầu trang">
-            <i data-lucide="arrow-up" class="w-4 h-4"></i>
+    <!-- Main Navigation Bar (Đỏ cam thương hiệu) -->
+    <nav class="school-nav-gradient border-b border-red-700 shadow-md">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between overflow-x-auto hide-scrollbar py-1">
+          <div class="flex items-center space-x-1 sm:space-x-2 text-xs sm:text-[13px] font-bold uppercase whitespace-nowrap">
+            <a href="#" class="px-3.5 py-2 rounded text-white bg-red-950/40 hover:bg-red-950/60 transition-colors flex items-center gap-1.5">
+              <i data-lucide="home" class="w-4 h-4"></i> Trang chủ
+            </a>
+            <a href="#teacher-info-box" class="px-3.5 py-2 rounded text-white hover:bg-red-800/80 transition-colors">
+              Giới thiệu
+            </a>
+            <a href="#systems-main-column" onclick="selectCategory('management')" class="px-3.5 py-2 rounded text-white hover:bg-red-800/80 transition-colors">
+              Quản lý & Khảo thí
+            </a>
+            <a href="#systems-main-column" onclick="selectCategory('teaching')" class="px-3.5 py-2 rounded text-white hover:bg-red-800/80 transition-colors">
+              Giảng dạy STEM
+            </a>
+            <a href="#student-library-column" class="px-3.5 py-2 rounded text-white hover:bg-red-800/80 transition-colors flex items-center gap-1">
+              <i data-lucide="book-open" class="w-3.5 h-3.5 text-yellow-300"></i> Kho học liệu học sinh
+            </a>
+            <a href="#footer-section" class="px-3.5 py-2 rounded text-white hover:bg-red-800/80 transition-colors">
+              Liên hệ
+            </a>
+          </div>
+
+          <div class="hidden lg:flex items-center gap-2 text-xs text-red-100 font-medium">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>Hệ thống trực tuyến 24/7</span>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Sub-bar: Calendar date + Quick Search (Giống website trường) -->
+    <div class="bg-white border-b border-slate-200 py-2 px-4 sm:px-6 lg:px-8 text-xs text-slate-600">
+      <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2.5">
+        <!-- Date display -->
+        <div class="flex items-center gap-2 font-medium text-slate-700">
+          <i data-lucide="calendar" class="w-4 h-4 text-red-600"></i>
+          <span id="current-date-text">Thứ Hai, 02/11/2026</span>
+          <span class="text-slate-300">|</span>
+          <span class="text-slate-500">Cổng tra cứu công cụ & tài liệu STEM trường THPT Ea H'leo</span>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="flex items-center gap-1.5 w-full sm:w-auto">
+          <div class="relative flex-1 sm:w-72">
+            <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-2.5 top-1/2 -translate-y-1/2"></i>
+            <input 
+              id="top-search-input" 
+              type="text" 
+              placeholder="Tìm kiếm công cụ, mã nguồn..." 
+              class="w-full pl-8 pr-3 py-1.5 rounded-lg border border-slate-300 text-xs focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600 transition-all">
+          </div>
+          <button onclick="document.getElementById('top-search-input').focus()" class="px-3 py-1.5 rounded-lg bg-red-600 hover:bg-red-700 text-white font-bold text-xs transition-colors shrink-0">
+            Tìm
           </button>
         </div>
       </div>
     </div>
-  </nav>
+  </header>
 
   <!-- ========================================================================= -->
-  <!-- MAIN LAYOUT CONTAINER (BLOG STYLE: LEFT SIDEBAR + RIGHT CONTENT) -->
+  <!-- MAIN 3-COLUMN LAYOUT -->
   <!-- ========================================================================= -->
-  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-6">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
 
       <!-- ===================================================================== -->
-      <!-- LEFT COLUMN: TEACHER PROFILE & NAVIGATION (STICKY BLOG SIDEBAR) -->
+      <!-- CỘT 1 (BÊN TRÁI): THÔNG TIN GIÁO VIÊN & ĐÁNH GIÁ TÍCH CỰC (3/12) -->
       <!-- ===================================================================== -->
-      <aside class="lg:col-span-4 space-y-6 lg:sticky lg:top-20">
-        <!-- Profile Card -->
-        <div class="glass-card rounded-3xl p-6 border border-white/10 relative overflow-hidden">
-          <!-- Background Ambient Glow -->
-          <div class="absolute -right-16 -top-16 w-40 h-40 bg-gold-500/10 rounded-full blur-3xl pointer-events-none"></div>
-          <div class="absolute -left-16 -bottom-16 w-40 h-40 bg-sky-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      <aside class="lg:col-span-3 space-y-4">
 
-          <div class="flex flex-col items-center text-center space-y-4">
-            <!-- Avatar with Glowing Ring -->
-            <div class="relative group">
-              <div class="w-28 h-28 rounded-full p-1 bg-gradient-to-tr from-gold-500 via-amber-400 to-amber-200 shadow-glow-gold">
-                <div class="w-full h-full rounded-full bg-dark-900 border-2 border-dark-900 overflow-hidden flex items-center justify-center">
-                  <img id="profile-avatar" src="assets/images/teacher-avatar.svg" alt="Avatar Giáo Viên" class="w-full h-full object-cover">
-                </div>
-              </div>
-              <span class="absolute bottom-1 right-2 px-2 py-0.5 text-[10px] font-bold rounded-full bg-emerald-500 text-dark-900 border-2 border-dark-900 flex items-center gap-1 shadow-md">
-                <span class="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span> Online
-              </span>
+        <!-- Box 1: Thông tin giáo viên / Tác giả -->
+        <div id="teacher-info-box" class="portal-card p-4 space-y-3.5">
+          <div class="section-header">
+            <span class="section-title">Thông tin tác giả</span>
+          </div>
+
+          <div class="flex flex-col items-center text-center space-y-2.5">
+            <!-- Avatar -->
+            <div class="w-20 h-20 rounded-full p-1 bg-red-100 border-2 border-red-600 shadow-sm relative">
+              <img id="profile-avatar" src="assets/images/teacher-avatar.svg" alt="Avatar Giáo Viên" class="w-full h-full rounded-full object-cover">
+              <span class="absolute bottom-0 right-0 w-4 h-4 bg-emerald-500 border-2 border-white rounded-full" title="Trạng thái: Hoạt động"></span>
             </div>
 
-            <!-- Identity -->
-            <div class="space-y-1">
-              <h2 id="profile-name" class="font-heading font-black text-xl sm:text-2xl text-white tracking-wide">
-                Thầy Giáo Nguyễn Văn Cường
-              </h2>
-              <p id="profile-role" class="text-xs sm:text-[13px] text-gold-400 font-semibold leading-relaxed">
-                Giáo viên Tin học & Chuyên gia STEM - Chuyển đổi số Giáo dục
+            <!-- Name & Role -->
+            <div>
+              <h3 id="profile-name" class="font-bold text-slate-800 text-base leading-tight">
+                Thầy Nguyễn Văn Cường
+              </h3>
+              <p id="profile-role" class="text-xs text-red-700 font-semibold mt-0.5">
+                Giáo viên Tin học & Chuyên gia STEM
               </p>
-              <div class="flex items-center justify-center gap-1.5 text-xs text-slate-400 pt-1">
-                <i data-lucide="map-pin" class="w-3.5 h-3.5 text-slate-500"></i>
-                <span id="profile-school">Trường THPT Ea H'leo • Đắk Lắk</span>
-              </div>
+              <p id="profile-school" class="text-[11px] text-slate-500 mt-0.5">
+                Trường THPT Ea H'leo • Đắk Lắk
+              </p>
             </div>
 
-            <!-- Bio text -->
-            <p id="profile-bio" class="text-xs text-slate-300 leading-relaxed text-left bg-dark-900/60 p-3.5 rounded-2xl border border-white/5">
-              Chào mừng các thầy cô, đồng nghiệp và các em học sinh! Đây là trang tổng hợp các hệ thống phần mềm, công cụ trợ lý chuyển đổi số và thư viện mã nguồn thực hành STEM được tôi nghiên cứu, xây dựng và đưa vào ứng dụng thực tế.
+            <!-- Bio -->
+            <p id="profile-bio" class="text-xs text-slate-600 leading-relaxed text-justify bg-slate-50 p-2.5 rounded-lg border border-slate-100">
+              Chào mừng quý thầy cô, phụ huynh và các em học sinh! Trang thông tin được xây dựng nhằm tổng hợp các giải pháp chuyển đổi số và kho học liệu STEM thực hành.
             </p>
 
-            <!-- Quick Stats Grid -->
-            <div class="w-full grid grid-cols-3 gap-2 pt-1">
-              <div class="bg-dark-900/80 p-2.5 rounded-2xl border border-white/5 text-center">
-                <span id="stat-systems" class="block font-heading font-black text-base sm:text-lg text-gold-400">6</span>
-                <span class="text-[10px] text-slate-400">Hệ thống</span>
+            <!-- Stats -->
+            <div class="w-full grid grid-cols-3 gap-1.5 pt-1 text-center">
+              <div class="p-1.5 bg-slate-50 rounded-lg border border-slate-100">
+                <span id="stat-systems" class="block font-black text-red-700 text-sm">6</span>
+                <span class="text-[9.5px] text-slate-500">Hệ thống</span>
               </div>
-              <div class="bg-dark-900/80 p-2.5 rounded-2xl border border-white/5 text-center">
-                <span id="stat-students" class="block font-heading font-black text-base sm:text-lg text-emerald-400">1,200+</span>
-                <span class="text-[10px] text-slate-400">Học sinh</span>
+              <div class="p-1.5 bg-slate-50 rounded-lg border border-slate-100">
+                <span id="stat-students" class="block font-black text-emerald-700 text-sm">1,200+</span>
+                <span class="text-[9.5px] text-slate-500">Học sinh</span>
               </div>
-              <div class="bg-dark-900/80 p-2.5 rounded-2xl border border-white/5 text-center">
-                <span id="stat-resources" class="block font-heading font-black text-base sm:text-lg text-sky-400">45+</span>
-                <span class="text-[10px] text-slate-400">Mã & Mạch</span>
+              <div class="p-1.5 bg-slate-50 rounded-lg border border-slate-100">
+                <span id="stat-resources" class="block font-black text-sky-700 text-sm">45+</span>
+                <span class="text-[9.5px] text-slate-500">Học liệu</span>
               </div>
             </div>
 
-            <!-- Skills chips -->
-            <div id="profile-skills" class="w-full flex flex-wrap gap-1.5 justify-center pt-1">
-              <!-- Dynamically populated -->
-            </div>
-
-            <!-- Social Links -->
-            <div class="w-full pt-3 border-t border-white/10 flex items-center justify-center gap-2">
-              <a id="link-zalo" href="#" target="_blank" class="p-2 rounded-xl bg-dark-800 hover:bg-dark-700 text-slate-300 hover:text-white border border-white/5 transition-all" title="Liên hệ Zalo">
-                <i data-lucide="message-circle" class="w-4 h-4 text-sky-400"></i>
+            <!-- Social / Contacts -->
+            <div class="w-full pt-2 border-t border-slate-100 flex items-center justify-center gap-1.5">
+              <a id="link-zalo" href="#" target="_blank" class="p-2 rounded-lg bg-sky-50 text-sky-700 hover:bg-sky-100 transition-colors" title="Zalo">
+                <i data-lucide="message-circle" class="w-4 h-4"></i>
               </a>
-              <a id="link-facebook" href="#" target="_blank" class="p-2 rounded-xl bg-dark-800 hover:bg-dark-700 text-slate-300 hover:text-white border border-white/5 transition-all" title="Facebook cá nhân">
-                <i data-lucide="facebook" class="w-4 h-4 text-blue-400"></i>
+              <a id="link-facebook" href="#" target="_blank" class="p-2 rounded-lg bg-blue-50 text-blue-700 hover:bg-blue-100 transition-colors" title="Facebook">
+                <i data-lucide="facebook" class="w-4 h-4"></i>
               </a>
-              <a id="link-github" href="#" target="_blank" class="p-2 rounded-xl bg-dark-800 hover:bg-dark-700 text-slate-300 hover:text-white border border-white/5 transition-all" title="Kho mã nguồn GitHub">
-                <i data-lucide="github" class="w-4 h-4 text-gold-400"></i>
+              <a id="link-github" href="#" target="_blank" class="p-2 rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200 transition-colors" title="GitHub">
+                <i data-lucide="github" class="w-4 h-4"></i>
               </a>
-              <a id="link-email" href="#" class="p-2 rounded-xl bg-dark-800 hover:bg-dark-700 text-slate-300 hover:text-white border border-white/5 transition-all" title="Gửi thư điện tử">
-                <i data-lucide="mail" class="w-4 h-4 text-emerald-400"></i>
+              <a id="link-email" href="#" class="p-2 rounded-lg bg-red-50 text-red-700 hover:bg-red-100 transition-colors" title="Email">
+                <i data-lucide="mail" class="w-4 h-4"></i>
+              </a>
+              <a id="link-school" href="http://c3eahleo.daklak.edu.vn" target="_blank" class="p-2 rounded-lg bg-amber-50 text-amber-800 hover:bg-amber-100 transition-colors" title="Cổng trường THPT Ea H'leo">
+                <i data-lucide="globe" class="w-4 h-4"></i>
               </a>
             </div>
           </div>
         </div>
 
-        <!-- Category Filter & Search Box -->
-        <div class="glass-card rounded-3xl p-5 border border-white/10 space-y-4">
-          <!-- Search Bar -->
-          <div class="relative">
-            <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none"></i>
-            <input 
-              id="search-input" 
-              type="text" 
-              placeholder="Tìm kiếm công cụ, mã nguồn..." 
-              class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-dark-900/90 border border-white/10 text-xs sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:border-gold-500/50 focus:ring-1 focus:ring-gold-500/50 transition-all">
+        <!-- Box 2: Đánh giá & Bình luận tích cực -->
+        <div class="portal-card p-4 space-y-3">
+          <div class="section-header">
+            <span class="section-title">Đánh giá & Phản hồi</span>
+            <span class="text-[10px] text-amber-600 font-bold bg-amber-50 px-2 py-0.5 rounded border border-amber-200">5.0 ★</span>
           </div>
 
-          <!-- Category Navigation List -->
-          <div class="space-y-1.5">
-            <p class="text-[11px] font-heading font-bold text-slate-400 uppercase tracking-wider px-2">
-              Chuyên mục phân hệ:
-            </p>
-            <div id="category-nav" class="space-y-1">
-              <!-- Dynamically populated categories -->
-            </div>
+          <div id="reviews-container" class="space-y-2.5">
+            <!-- Dynamically populated from data.js -->
           </div>
         </div>
+
+        <!-- Box 3: Kỹ năng chuyên môn -->
+        <div class="portal-card p-4 space-y-2.5">
+          <div class="section-header">
+            <span class="section-title">Lĩnh vực phụ trách</span>
+          </div>
+          <div id="profile-skills" class="flex flex-wrap gap-1.5">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+
       </aside>
 
       <!-- ===================================================================== -->
-      <!-- RIGHT COLUMN: MAIN CONTENT (TOOLS GRID & STUDENT LIBRARY) -->
+      <!-- CỘT 2 (Ở GIỮA): CÁC CÔNG CỤ HỖ TRỢ DẠY HỌC & QUẢN TRỊ (TO VÀ NỔI BẬT NHẤT - 6/12) -->
       <!-- ===================================================================== -->
-      <section class="lg:col-span-8 space-y-8">
+      <section id="systems-main-column" class="lg:col-span-6 space-y-4">
 
-        <!-- Welcome Hero Banner -->
-        <div class="glass-card rounded-3xl p-6 sm:p-8 border border-white/10 relative overflow-hidden shadow-glass">
-          <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-gold-500/10 rounded-full blur-3xl pointer-events-none"></div>
-          
-          <div class="relative z-10 space-y-4">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-500/15 border border-gold-500/30 text-gold-300 text-xs font-heading font-bold">
-              <i data-lucide="sparkles" class="w-3.5 h-3.5 text-gold-400"></i>
-              <span>Cổng Chuyển Đổi Số Giáo Dục Toàn Diện</span>
+        <!-- Featured Welcome Card -->
+        <div class="portal-card p-4 sm:p-5 border-l-4 border-l-red-600 bg-gradient-to-r from-red-50/50 via-white to-white">
+          <div class="flex items-start justify-between gap-3">
+            <div class="space-y-1">
+              <span class="text-[11px] font-bold text-red-700 uppercase tracking-wide">
+                Chuyển đổi số trường học • THPT Ea H'leo
+              </span>
+              <h2 class="text-base sm:text-lg font-black text-slate-800 leading-snug">
+                Hệ Thống Công Cụ Hỗ Trợ Dạy Học &amp; Quản Trị Giáo Dục
+              </h2>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                Tất cả các phần mềm được nghiên cứu và thiết kế chuyên sâu nhằm giảm tải hồ sơ sổ sách, tự động hóa thi cử, quản lý nề nếp và đổi mới phương pháp giảng dạy STEM theo chương trình GDPT 2018.
+              </p>
             </div>
-
-            <h2 class="font-heading font-black text-2xl sm:text-3xl text-white leading-tight">
-              Tổng Hợp Các <span class="gold-gradient-text">Hệ Thống Tiện Ích</span> Đã Xây Dựng & Thư Viện Học Tập
-            </h2>
-
-            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-2xl">
-              Tất cả các công cụ được phát triển với mục tiêu nâng cao hiệu quả quản trị nhà trường, tối ưu hóa thời gian cho thầy cô và khơi dậy đam mê lập trình, nghiên cứu khoa học cho học sinh THPT.
-            </p>
-
-            <div class="pt-2 flex flex-wrap items-center gap-3">
-              <a href="#systems-section" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-gold-500 to-amber-500 hover:from-gold-400 hover:to-amber-400 text-dark-900 font-heading font-extrabold text-xs sm:text-sm flex items-center gap-2 shadow-glow-gold transition-all">
-                <i data-lucide="layers" class="w-4 h-4"></i>
-                <span>Khám phá 6 hệ thống</span>
-              </a>
-
-              <a href="#student-library-section" class="px-5 py-2.5 rounded-xl bg-dark-700/80 hover:bg-dark-600 text-white border border-white/10 font-heading font-bold text-xs sm:text-sm flex items-center gap-2 transition-all">
-                <i data-lucide="terminal" class="w-4 h-4 text-sky-400"></i>
-                <span>Góc học sinh & Lập trình STEM</span>
-              </a>
+            <div class="w-12 h-12 rounded-xl bg-red-100 text-red-700 flex items-center justify-center shrink-0 hidden sm:flex">
+              <i data-lucide="cpu" class="w-6 h-6"></i>
             </div>
           </div>
         </div>
 
-        <!-- =================================================================== -->
-        <!-- SECTION 1: CÁC CÔNG CỤ & HỆ THỐNG ĐÃ XÂY DỰNG -->
-        <!-- =================================================================== -->
-        <div id="systems-section" class="space-y-4">
+        <!-- Section Title & Category Filter Bar -->
+        <div class="portal-card p-3 space-y-2.5">
           <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2.5">
-              <div class="w-2.5 h-6 rounded-full bg-gold-400"></div>
-              <h3 class="font-heading font-black text-lg sm:text-xl text-white tracking-wide">
-                Hệ Thống Đã Triển Khai
-              </h3>
+            <div class="section-title">
+              <span>Hệ thống đã triển khai</span>
             </div>
-            <span id="systems-count-badge" class="px-3 py-1 text-xs font-bold rounded-xl bg-dark-800 text-gold-400 border border-gold-500/20 font-mono">
+            <span id="systems-count-badge" class="text-xs font-bold text-red-700 bg-red-50 px-2.5 py-0.5 rounded border border-red-200">
               6 hệ thống
             </span>
           </div>
 
-          <!-- Systems Grid (2 Columns on tablet/desktop) -->
-          <div id="systems-container" class="grid grid-cols-1 md:grid-cols-2 gap-5">
-            <!-- Dynamically populated systems cards -->
+          <!-- Category filter buttons -->
+          <div id="category-filter-nav" class="flex flex-wrap gap-1.5 pt-1">
+            <!-- Dynamically populated -->
           </div>
         </div>
 
-        <!-- =================================================================== -->
-        <!-- SECTION 2: MỤC ĐẶC BIỆT - THƯ VIỆN HỌC TẬP CHO HỌC SINH -->
-        <!-- =================================================================== -->
-        <div id="student-library-section" class="space-y-4 pt-6 border-t border-white/10">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-            <div class="flex items-center gap-2.5">
-              <div class="w-2.5 h-6 rounded-full bg-sky-400"></div>
-              <div>
-                <h3 class="font-heading font-black text-lg sm:text-xl text-white tracking-wide flex items-center gap-2">
-                  <span>Thư Viện Học Tập & Mã Nguồn STEM</span>
-                  <span class="px-2 py-0.5 text-[10px] font-extrabold rounded-md bg-sky-500/20 text-sky-300 border border-sky-500/30 uppercase">
-                    Dành cho Học Sinh
-                  </span>
-                </h3>
-                <p class="text-xs text-slate-400">Tham khảo mã nguồn, sơ đồ nối dây vi điều khiển và tài liệu chuyên đề</p>
-              </div>
-            </div>
-            <span id="library-count-badge" class="px-3 py-1 text-xs font-bold rounded-xl bg-dark-800 text-sky-400 border border-sky-500/20 font-mono shrink-0">
-              4 tài nguyên STEM
-            </span>
-          </div>
-
-          <!-- Library Grid -->
-          <div id="student-library-container" class="grid grid-cols-1 md:grid-cols-2 gap-5">
-            <!-- Dynamically populated library items -->
-          </div>
+        <!-- Systems Grid (2 Columns inside Center Column) -->
+        <div id="systems-container" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <!-- Dynamically populated from data.js -->
         </div>
 
       </section>
+
+      <!-- ===================================================================== -->
+      <!-- CỘT 3 (BÊN PHẢI): KHO HỌC LIỆU CHO HỌC SINH (3/12) -->
+      <!-- ===================================================================== -->
+      <aside id="student-library-column" class="lg:col-span-3 space-y-4">
+
+        <!-- Header Card for Student Library -->
+        <div class="portal-card p-4 space-y-3">
+          <div class="section-header">
+            <span class="section-title">Kho học liệu học sinh</span>
+            <span id="library-count-badge" class="text-xs font-bold text-sky-700 bg-sky-50 px-2 py-0.5 rounded border border-sky-200">
+              4 bài học
+            </span>
+          </div>
+
+          <p class="text-xs text-slate-600 leading-relaxed bg-sky-50/70 p-2.5 rounded-lg border border-sky-100">
+            Dành cho học sinh các lớp Lập trình, Tin học ứng dụng &amp; STEM Robotics: Tham khảo mã nguồn, sơ đồ nối dây vi điều khiển và tải bài thực hành.
+          </p>
+
+          <!-- List of Student Projects & Code -->
+          <div id="student-library-container" class="space-y-3">
+            <!-- Dynamically populated from data.js -->
+          </div>
+        </div>
+
+        <!-- Box: Tài liệu & Giáo trình tự học STEM -->
+        <div class="portal-card p-4 space-y-2.5">
+          <div class="section-header">
+            <span class="section-title">Tài liệu &amp; Đề cương</span>
+          </div>
+
+          <ul class="text-xs space-y-2">
+            <li class="p-2 rounded bg-slate-50 border border-slate-100 hover:bg-red-50/50 transition-colors flex items-center justify-between gap-2">
+              <div class="flex items-center gap-2">
+                <i data-lucide="file-text" class="w-4 h-4 text-red-600 shrink-0"></i>
+                <span class="font-medium text-slate-700">Giáo trình Arduino STEM cơ bản</span>
+              </div>
+              <span class="text-[10px] text-slate-400 font-mono">PDF</span>
+            </li>
+            <li class="p-2 rounded bg-slate-50 border border-slate-100 hover:bg-red-50/50 transition-colors flex items-center justify-between gap-2">
+              <div class="flex items-center gap-2">
+                <i data-lucide="file-code" class="w-4 h-4 text-sky-600 shrink-0"></i>
+                <span class="font-medium text-slate-700">Chuyên đề Lập trình Python AI</span>
+              </div>
+              <span class="text-[10px] text-slate-400 font-mono">PDF</span>
+            </li>
+            <li class="p-2 rounded bg-slate-50 border border-slate-100 hover:bg-red-50/50 transition-colors flex items-center justify-between gap-2">
+              <div class="flex items-center gap-2">
+                <i data-lucide="download" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+                <span class="font-medium text-slate-700">Phiếu thực hành nối dây cảm biến</span>
+              </div>
+              <span class="text-[10px] text-slate-400 font-mono">DOCX</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Box: Chú ý an toàn phòng thực hành -->
+        <div class="portal-card p-4 bg-amber-50/60 border border-amber-200 text-xs space-y-1.5">
+          <div class="flex items-center gap-1.5 font-bold text-amber-900">
+            <i data-lucide="alert-triangle" class="w-4 h-4 text-amber-600"></i>
+            <span>Lưu ý an toàn thực hành STEM:</span>
+          </div>
+          <p class="text-[11.5px] text-amber-800 leading-relaxed">
+            Các em học sinh cần kiểm tra kỹ cực âm (GND) và cực dương (5V/3.3V) trước khi cắm cáp USB vào máy tính để tránh gây chập cháy linh kiện board Arduino/ESP32.
+          </p>
+        </div>
+
+      </aside>
+
     </div>
   </main>
 
   <!-- ========================================================================= -->
   <!-- FOOTER -->
   <!-- ========================================================================= -->
-  <footer class="mt-16 border-t border-white/10 bg-dark-900/90 backdrop-blur-md py-8">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+  <footer id="footer-section" class="mt-12 bg-white border-t border-slate-200 text-xs text-slate-600 py-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
       <div class="flex items-center gap-3">
-        <div class="w-7 h-7 rounded-lg bg-gold-500/20 border border-gold-500/40 flex items-center justify-center text-gold-400">
-          <i data-lucide="shield" class="w-4 h-4"></i>
+        <div class="w-10 h-10 shrink-0">
+          <img src="assets/images/logo-c3eahleo.svg" alt="Logo THPT Ea H'leo" class="w-full h-full object-contain">
         </div>
         <div>
-          <p class="font-bold text-slate-200">Bản quyền © 2026 - 2027 • Thầy Nguyễn Văn Cường</p>
-          <p class="text-[11px] text-slate-400">Trường THPT Ea H'leo, Huyện Ea H'leo, Tỉnh Đắk Lắk</p>
+          <p class="font-bold text-slate-800 text-sm">TRƯỜNG TRUNG HỌC PHỔ THÔNG EA H'LEO</p>
+          <p class="text-[11px] text-slate-500">Phụ trách nội dung &amp; kỹ thuật: Thầy Nguyễn Văn Cường • Năm học 2026 - 2027</p>
         </div>
       </div>
 
-      <div class="flex items-center gap-4 text-[11px]">
-        <span class="flex items-center gap-1.5 text-emerald-400 font-mono">
-          <span class="pulse-dot"></span> Sẵn sàng chạy trên GitHub Pages
-        </span>
-        <span>•</span>
-        <a href="#systems-section" class="hover:text-gold-400 transition-colors">Về đầu trang</a>
+      <div class="text-center md:text-right space-y-0.5">
+        <p class="text-slate-700 font-medium">Hệ thống triển khai trên nền tảng GitHub Pages</p>
+        <p class="text-[11px] text-slate-500">Bản quyền thuộc về Trường THPT Ea H'leo, Đắk Lắk</p>
       </div>
     </div>
   </footer>
@@ -351,7 +401,7 @@
   <!-- MODAL 1: SYSTEM DETAILS & DEMO CREDENTIALS -->
   <!-- ========================================================================= -->
   <div id="tool-detail-modal" class="hidden fixed inset-0 z-50 modal-overlay items-center justify-center p-3 sm:p-4 overflow-y-auto">
-    <div id="tool-modal-content" class="glass-card rounded-3xl max-w-2xl w-full border border-gold-500/30 overflow-hidden shadow-2xl modal-enter">
+    <div id="tool-modal-content" class="bg-white rounded-xl max-w-2xl w-full border border-slate-300 overflow-hidden shadow-2xl modal-enter">
       <!-- Injected by app.js -->
     </div>
   </div>
@@ -360,41 +410,41 @@
   <!-- MODAL 2: CODE VIEWER MODAL FOR STUDENTS -->
   <!-- ========================================================================= -->
   <div id="code-modal" class="hidden fixed inset-0 z-50 modal-overlay items-center justify-center p-3 sm:p-4 overflow-y-auto">
-    <div class="glass-card rounded-3xl max-w-3xl w-full border border-sky-500/30 overflow-hidden shadow-2xl modal-enter flex flex-col">
+    <div class="bg-white rounded-xl max-w-3xl w-full border border-slate-300 overflow-hidden shadow-2xl modal-enter flex flex-col">
       <!-- Header -->
-      <div class="p-5 border-b border-white/10 flex items-center justify-between gap-3">
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-xl bg-sky-500/15 border border-sky-500/30 flex items-center justify-center text-sky-400">
-            <i data-lucide="terminal" class="w-5 h-5"></i>
+      <div class="p-4 border-b border-slate-200 flex items-center justify-between gap-3 bg-slate-900 text-white">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-lg bg-red-600/30 border border-red-500 flex items-center justify-center text-red-400">
+            <i data-lucide="terminal" class="w-4 h-4"></i>
           </div>
           <div>
-            <span id="code-modal-badge" class="px-2 py-0.5 text-[10px] font-bold rounded bg-sky-500/20 text-sky-300 border border-sky-500/30 uppercase">
+            <span id="code-modal-badge" class="px-2 py-0.5 text-[10px] font-bold rounded bg-red-500/20 text-red-300 border border-red-500/30 uppercase">
               Arduino C++
             </span>
-            <h3 id="code-modal-title" class="font-heading font-extrabold text-base sm:text-lg text-white leading-snug mt-1">
+            <h3 id="code-modal-title" class="font-bold text-sm sm:text-base text-white leading-snug mt-0.5">
               Xem mã nguồn
             </h3>
           </div>
         </div>
-        <button onclick="closeModal('code-modal')" class="p-1.5 text-slate-400 hover:text-white rounded-xl hover:bg-white/10 transition-colors">
+        <button onclick="closeModal('code-modal')" class="p-1 text-slate-400 hover:text-white rounded-lg hover:bg-white/10 transition-colors">
           <i data-lucide="x" class="w-5 h-5"></i>
         </button>
       </div>
 
-      <!-- Code Box -->
-      <div class="p-5 bg-dark-950/90 overflow-x-auto max-h-[60vh]">
-        <pre><code id="code-modal-snippet" class="text-xs sm:text-[13px] font-mono text-emerald-300 leading-relaxed"></code></pre>
+      <!-- Code Box (Dark theme with syntax styling) -->
+      <div class="p-4 bg-slate-950 overflow-x-auto max-h-[60vh]">
+        <pre><code id="code-modal-snippet" class="text-xs sm:text-[13px] font-mono text-emerald-400 leading-relaxed"></code></pre>
       </div>
 
       <!-- Footer -->
-      <div class="p-4 border-t border-white/10 bg-dark-900 flex items-center justify-between gap-3">
-        <span class="text-xs text-slate-400">Học sinh có thể sao chép và dán vào Arduino IDE hoặc VS Code</span>
+      <div class="p-3 border-t border-slate-200 bg-slate-50 flex items-center justify-between gap-3">
+        <span class="text-xs text-slate-500">Học sinh bấm nút để sao chép vào Arduino IDE</span>
         <div class="flex items-center gap-2">
-          <button onclick="closeModal('code-modal')" class="px-4 py-2 rounded-xl bg-dark-700 hover:bg-dark-600 text-slate-300 text-xs font-bold transition-all">
+          <button onclick="closeModal('code-modal')" class="px-3.5 py-1.5 rounded-lg bg-slate-200 hover:bg-slate-300 text-slate-700 text-xs font-semibold transition-colors">
             Đóng
           </button>
-          <button id="code-modal-copy-btn" class="px-4 py-2 rounded-xl bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white font-heading font-bold text-xs flex items-center gap-2 transition-all shadow-glow-sky">
-            <i data-lucide="copy" class="w-4 h-4"></i>
+          <button id="code-modal-copy-btn" class="px-4 py-1.5 rounded-lg btn-primary-red text-xs font-bold flex items-center gap-1.5 shadow-sm">
+            <i data-lucide="copy" class="w-3.5 h-3.5"></i>
             <span>Sao chép toàn bộ code</span>
           </button>
         </div>
@@ -406,34 +456,29 @@
   <!-- MODAL 3: WIRING DIAGRAM ZOOM MODAL -->
   <!-- ========================================================================= -->
   <div id="diagram-modal" class="hidden fixed inset-0 z-50 modal-overlay items-center justify-center p-3 sm:p-4 overflow-y-auto">
-    <div class="glass-card rounded-3xl max-w-4xl w-full border border-gold-500/30 overflow-hidden shadow-2xl modal-enter flex flex-col">
-      <div class="p-5 border-b border-white/10 flex items-center justify-between gap-3">
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-xl bg-gold-500/15 border border-gold-500/30 flex items-center justify-center text-gold-400">
-            <i data-lucide="network" class="w-5 h-5"></i>
-          </div>
+    <div class="bg-white rounded-xl max-w-4xl w-full border border-slate-300 overflow-hidden shadow-2xl modal-enter flex flex-col">
+      <div class="p-4 border-b border-slate-200 flex items-center justify-between gap-3 bg-red-800 text-white">
+        <div class="flex items-center gap-2.5">
+          <i data-lucide="network" class="w-5 h-5 text-yellow-300"></i>
           <div>
-            <span class="px-2 py-0.5 text-[10px] font-bold rounded bg-gold-500/20 text-gold-300 border border-gold-500/30 uppercase">
-              Sơ đồ đấu nối dây
-            </span>
-            <h3 id="diagram-modal-title" class="font-heading font-extrabold text-base sm:text-lg text-white leading-snug mt-1">
-              Sơ đồ mạch điện
+            <h3 id="diagram-modal-title" class="font-bold text-sm sm:text-base text-white">
+              Sơ đồ đấu nối dây vi điều khiển
             </h3>
+            <p class="text-xs text-red-100">Phòng thực hành Tin học &amp; STEM - THPT Ea H'leo</p>
           </div>
         </div>
-        <button onclick="closeModal('diagram-modal')" class="p-1.5 text-slate-400 hover:text-white rounded-xl hover:bg-white/10 transition-colors">
+        <button onclick="closeModal('diagram-modal')" class="p-1 text-red-200 hover:text-white rounded-lg hover:bg-white/10 transition-colors">
           <i data-lucide="x" class="w-5 h-5"></i>
         </button>
       </div>
 
-      <!-- Diagram Image -->
-      <div class="p-4 bg-dark-950 flex flex-col items-center justify-center">
-        <img id="diagram-modal-img" src="" alt="Sơ đồ nối dây" class="max-h-[65vh] w-auto object-contain rounded-xl border border-white/5">
-        <p id="diagram-modal-guide" class="text-xs text-gold-300 mt-3 font-mono text-center"></p>
+      <div class="p-4 bg-slate-900 flex flex-col items-center justify-center">
+        <img id="diagram-modal-img" src="" alt="Sơ đồ nối dây" class="max-h-[65vh] w-auto object-contain rounded-lg border border-slate-700 shadow-md">
+        <p id="diagram-modal-guide" class="text-xs text-yellow-300 mt-2 font-mono text-center"></p>
       </div>
 
-      <div class="p-4 border-t border-white/10 bg-dark-900 flex justify-end">
-        <button onclick="closeModal('diagram-modal')" class="px-5 py-2 rounded-xl bg-dark-700 hover:bg-dark-600 text-slate-200 text-xs font-bold transition-all">
+      <div class="p-3 border-t border-slate-200 bg-white flex justify-end">
+        <button onclick="closeModal('diagram-modal')" class="px-4 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold transition-colors">
           Đóng cửa sổ
         </button>
       </div>

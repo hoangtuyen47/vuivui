@@ -1,90 +1,45 @@
 # CỔNG TIỆN ÍCH & CHUYỂN ĐỔI SỐ GIÁO DỤC - THPT EA H'LEO
 
-> Trang web cá nhân tổng hợp các hệ thống quản trị trường học, trợ lý giáo viên và thư viện học tập STEM dành cho học sinh.
-> **Thiết kế theo chuẩn giao diện Hệ thống Quản lý Nề nếp**: Font chữ Outfit + Inter, hiệu ứng Dark Glassmorphism, ánh sáng viền vàng Gold & xanh ngọc Emerald, sẵn sàng xuất bản trên **GitHub Pages**.
+> **Thiết kế đồng bộ theo giao diện Cổng thông tin Trường THPT Ea H'leo**:
+> - **Font chữ chuẩn**: Google Fonts `Be Vietnam Pro` (chữ tiếng Việt sắc nét, thanh lịch, trang trọng).
+> - **Bảng màu chuẩn nhận diện**: Đỏ rượu vang truyền thống `#8e1818` kết hợp đỏ tươi thương hiệu `#c82333` và nền xám ngọc trai `#f4f6f9`.
+> - **Bố cục 3 cột chuyên nghiệp**:
+>   - **Cột trái**: Thông tin giáo viên tác giả, kỹ năng và các đánh giá / bình luận tích cực.
+>   - **Cột giữa (To và nổi bật nhất)**: 6 Hệ thống & Công cụ số hóa hỗ trợ giảng dạy & quản trị.
+>   - **Cột phải**: Kho học liệu STEM dành cho học sinh (Dự án, Code mẫu, Sơ đồ mạch, Tài liệu).
 
 ---
 
-## 🌟 CÁC HỆ THỐNG ĐÃ TÍCH HỢP TRÊN TRANG
+## 🏛️ BỐ CỤC 3 CỘT CHI TIẾT
 
-1. **Quản Lý Nề Nếp Nhà Trường (Ea H'leo Discipline Hub)**
-   - Chấm điểm thi đua thời gian thực, bảng xếp hạng tự động, quét mã QR vi phạm, xuất báo cáo PDF/Excel chuẩn Bộ GD&ĐT.
-2. **Xếp Lịch Thi Thử Tốt Nghiệp THPT (Phương án 2 + 2)**
-   - Thuật toán giải bài toán chống trùng ca thi 2 môn tự chọn, tối ưu hóa số phòng thi và giám thị, in danh sách phòng thi và phiếu thu bài 1-click.
-3. **Trợ Lý Tạo Đề Thi & Khảo Thí Online (Aura Exam Hub)**
-   - Xây dựng ma trận đặc tả đề thi, trộn 4-8 mã đề thông minh, phòng thi trực tuyến chống gian lận, tự động chấm điểm và phân tích phổ điểm.
-4. **Trợ Lý Hồ Sơ Giáo Án Điện Tử (Chuẩn CV 5512)**
-   - Quản lý kế hoạch bài dạy (KHBD), tự động sinh Phụ lục 1, 2, 3, 4 chuẩn biểu mẫu Công văn 5512/BGDĐT, ký duyệt số và đồng bộ Google Drive.
-5. **Điểm Danh & Tính Học Phí Lớp Dạy Thêm**
-   - Quét mã QR điểm danh, tự động tính học phí theo số buổi thực học, thông báo tự động cho phụ huynh qua Zalo, xuất hóa đơn VietQR.
-6. **Mô Hình 3D Trực Quan Trong Dạy Học STEM**
-   - Không gian mô phỏng 3D WebGL xoay 360 độ mạch Arduino, cảm biến và lắp ráp phần cứng máy tính trực tiếp trên trình duyệt.
-7. **Thư Viện Học Tập Dành Cho Học Sinh (Mục đặc biệt)**
-   - Mã nguồn tham khảo (Arduino C++, Python AI, ESP32 IoT).
-   - Sơ đồ nối dây vi điều khiển và mạch điện tử tương tác.
-   - Trình xem code trực quan với nút **1-click Copy** và phóng to sơ đồ nối dây.
+### 1. Cột bên trái: Thông tin tác giả & Bình luận tích cực
+- Thẻ giáo viên: Avatar, họ tên, đơn vị, liên kết Zalo, Facebook, GitHub, Email, Cổng trường.
+- Thống kê hoạt động: 6 hệ thống, 1200+ học sinh, 45+ tài nguyên.
+- Khối đánh giá thực tế: Lời nhận xét và bình luận tích cực từ Ban Giám Hiệu, Giáo viên chủ nhiệm, Ban đại diện cha mẹ học sinh và học sinh đạt giải KHKT cấp Tỉnh.
+- Thẻ lĩnh vực chuyên môn: Chuyển đổi số giáo dục, Lập trình STEM, WebApp, Khảo thí GDPT 2018, Kế hoạch bài dạy CV 5512.
 
----
+### 2. Cột ở giữa (To và nổi bật nhất): 6 Hệ thống hỗ trợ dạy học & Quản trị
+1. **Quản lý nề nếp nhà trường (THPT Ea H'leo)**: Chấm thi đua real-time, bảng xếp hạng tự động, quét QR vi phạm, xuất báo cáo PDF/Excel chuẩn BGD.
+2. **Xếp lịch thi thử Tốt nghiệp THPT (2 + 2)**: Thuật toán AI chống trùng ca thi tự chọn, tối ưu phòng thi và giám thị, in phiếu thu bài và danh sách phòng thi 1-click.
+3. **Trợ lý tạo đề thi Online (Aura Exam Hub)**: Ma trận đặc tả GDPT 2018, trộn 4–8 mã đề, thi online chống gian lận, tự động chấm điểm và phân tích phổ điểm.
+4. **Trợ lý hồ sơ giáo án điện tử (Chuẩn CV 5512)**: Tự động sinh Phụ lục 1, 2, 3, 4, kho giáo án Tin học 10–12, ký duyệt số và đồng bộ Google Drive.
+5. **Điểm danh & Tính học phí lớp dạy thêm**: Quét mã QR 1 chạm, tự động tính học phí theo số buổi thực tế, thông báo Zalo phụ huynh, xuất hóa đơn VietQR.
+6. **Mô hình 3D trực quan trong dạy học STEM**: Xoay 360 độ mạch Arduino Uno, cảm biến, mô phỏng tháo lắp máy vi tính trực tiếp trên web bằng WebGL.
+* *Mỗi công cụ đều có nút "Tài khoản demo" mở Modal hiển thị tài khoản/mật khẩu với nút sao chép 1-chạm, và nút "Trải nghiệm ngay" màu đỏ thương hiệu.*
 
-## 🚀 HƯỚNG DẪN TRIỂN KHAI LÊN GITHUB PAGES (MIỄN PHÍ 100%)
-
-Trang web này được xây dựng hoàn toàn bằng **HTML/CSS/JS thuần tĩnh**, không cần cài đặt NodeJS hay build phức tạp, chỉ cần đẩy lên GitHub là chạy ngay lập tức.
-
-### Cách 1: Sử dụng GitHub Web (Nhanh nhất - Không cần cài Git)
-
-1. Đăng nhập tài khoản [GitHub](https://github.com) của thầy/cô.
-2. Bấm nút **New repository** (Tạo kho lưu trữ mới):
-   - Đặt tên Repository, ví dụ: `giao-duc-thpt-eahleo` hoặc `<username>.github.io`.
-   - Chọn chế độ: **Public**.
-   - Bấm **Create repository**.
-3. Tại trang repository vừa tạo, bấm **Add file** -> **Upload files**:
-   - Kéo toàn bộ các file và thư mục trong thư mục này (`index.html`, `assets/`, `.nojekyll`, `README.md`) thả vào ô upload.
-   - Bấm **Commit changes**.
-4. Bật GitHub Pages:
-   - Vào tab **Settings** của repository -> Menu bên trái chọn **Pages**.
-   - Tại mục **Build and deployment** -> **Branch**:
-     - Chọn nhánh: `main` (hoặc `master`).
-     - Thư mục: `/ (root)`.
-     - Bấm **Save**.
-5. Sau 1 phút, GitHub sẽ cấp cho thầy/cô link trang web có dạng:
-   👉 `https://<ten-tai-khoan>.github.io/giao-duc-thpt-eahleo/`
+### 3. Cột bên phải: Kho học liệu học sinh (STEM - Lập trình - Robotics)
+- **Dự án Arduino & Robotics**: Đèn giao thông thông minh, Thùng rác tự động mở nắp (HC-SR04 + SG90).
+- **Dự án IoT**: Trạm quan trắc nhiệt độ môi trường ESP32 IoT + DHT11.
+- **Dự án AI**: Nhận diện cử chỉ tay điều khiển máy tính bằng Python OpenCV & MediaPipe.
+- Nút **"Mã nguồn & Copy"**: Mở trình đọc code giao diện Dark Mode với nút 1-click Copy toàn bộ mã nguồn để dán vào Arduino IDE / VS Code.
+- Nút **"Sơ đồ"**: Phóng to sơ đồ đấu nối chân GPIO, VCC, GND, I2C.
+- Khối tải tài liệu PDF và khuyến cáo an toàn thực hành.
 
 ---
 
-### Cách 2: Sử dụng dòng lệnh Git (hoặc chạy file `deploy_github.bat`)
+## 🚀 CÁCH CẬP NHẬT LÊN GITHUB PAGES
 
-Mở terminal tại thư mục này và gõ:
-
-```bash
-git init
-git add .
-git commit -m "Khoi tao cong tien ich chuyen doi so THPT Ea H'leo"
-git branch -M main
-git remote add origin https://github.com/<ten-tai-khoan>/<ten-repo>.git
-git push -u origin main
-```
-
----
-
-## 🛠️ HƯỚNG DẪN TÙY CHỈNH DỮ LIỆU (`assets/js/data.js`)
-
-Toàn bộ thông tin trên trang web được tổ chức tách biệt tại file `assets/js/data.js`. Thầy/cô chỉ cần mở file này bằng Notepad hoặc VS Code để chỉnh sửa:
-
-1. **Thông tin cá nhân (Profile)**:
-   - Sửa họ tên, trường học, tiểu sử, số điện thoại, link Zalo, Facebook, GitHub tại mục `profile`.
-2. **Link trải nghiệm các hệ thống (`demoLink`)**:
-   - Thay thế các đường dẫn Web App Google Apps Script của thầy vào thuộc tính `demoLink` của từng hệ thống.
-3. **Tài khoản và mật khẩu demo (`credentials`)**:
-   - Thêm hoặc sửa các tài khoản mẫu tại mảng `credentials` của từng công cụ. Trang web sẽ tự động sinh bảng tài khoản kèm nút sao chép 1 chạm.
-4. **Bổ sung bài tập, mã nguồn cho học sinh (`studentLibrary`)**:
-   - Thêm bài mới vào mảng `studentLibrary` với cú pháp mã nguồn C++/Python và hướng dẫn nối dây.
-
----
-
-## 🎨 THÔNG SỐ GIAO DIỆN CHUẨN NỀ NẾP
-
-- **Typography**: Google Fonts `Outfit` (Tiêu đề hiện đại) + `Inter` (Nội dung) + `JetBrains Mono` (Mã nguồn).
-- **Màu sắc chủ đạo**:
-  - Nền không gian số: Dark Gradient `#070b14` ➔ `#0b1120` ➔ `#111827`.
-  - Ánh sáng điểm nhấn: Hoàng kim Gold `#f5d061`, Ngọc lục bảo Emerald `#10b981`, Xanh công nghệ Sky `#0ea5e9`.
-- **Hiệu ứng**: Dark Glassmorphism làm mờ nền 16px, hiệu ứng đổ bóng phát sáng neon (Glow shadows), viền phản chiếu ánh sáng khi rê chuột.
+Do toàn bộ mã nguồn nằm trong thư mục tĩnh [`teacher_portfolio_hub`](file:///C:/Users/Admin/.gemini/antigravity/scratch/teacher_portfolio_hub):
+1. Thầy chỉ cần nhấp đúp chuột vào file `deploy_github.bat`, dán link GitHub Repository vào và nhấn Enter.
+2. Hoặc kéo thả đè các file `index.html`, `assets/css/style.css`, `assets/js/data.js`, `assets/js/app.js` lên trang GitHub của Thầy rồi bấm **Commit changes**.
+3. Trang web trên GitHub Pages sẽ tự động cập nhật ngay lập tức!
