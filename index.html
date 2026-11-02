@@ -89,44 +89,16 @@
   <!-- HEADER BANNER: CHUẨN CỔNG THÔNG TIN ĐIỆN TỬ TRƯỜNG THPT EA H'LEO -->
   <!-- ========================================================================= -->
   <header class="w-full text-white shadow-sm">
-    <!-- Red Wine Banner with School Identity -->
-    <div class="school-banner-gradient py-3.5 px-4 sm:px-6 lg:px-8 border-b border-red-900/40">
-      <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-        
-        <!-- Left: Logo & School Titles -->
-        <div class="flex items-center gap-3.5 sm:gap-4 text-center md:text-left">
-          <!-- Circular Logo -->
-          <div class="w-16 h-16 sm:w-20 sm:h-20 flex-shrink-0 drop-shadow-md">
-            <img src="assets/images/logo-c3eahleo.svg" alt="Logo THPT Ea H'leo" class="w-full h-full object-contain">
-          </div>
 
-          <!-- Titles -->
-          <div class="space-y-0.5">
-            <p class="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-red-100">
-              SỞ GIÁO DỤC VÀ ĐÀO TẠO ĐẮK LẮK
-            </p>
-            <h1 class="text-xl sm:text-2xl md:text-3xl font-black uppercase tracking-wide text-yellow-300 drop-shadow-sm">
-              TRƯỜNG THPT EA H'LEO
-            </h1>
-            <p class="text-[11px] sm:text-xs text-red-100 font-normal flex items-center justify-center md:justify-start gap-1">
-              <i data-lucide="map-pin" class="w-3.5 h-3.5 text-yellow-300 shrink-0"></i>
-              <span>Địa chỉ: 31 Điện Biên Phủ - Xã Ea Drăng - Huyện Ea H'leo - Tỉnh Đắk Lắk</span>
-            </p>
-          </div>
-        </div>
-
-        <!-- Right: Portal Title & Teacher Badge -->
-        <div class="text-center md:text-right border-t md:border-t-0 pt-2 md:pt-0 border-red-800/60">
-          <span class="inline-block px-3 py-1 rounded-full bg-yellow-400 text-red-950 text-xs font-extrabold uppercase shadow-sm mb-1">
-            Chuyển Đổi Số Giáo Dục
-          </span>
-          <h2 class="text-sm sm:text-base font-bold text-white leading-tight">
-            CỔNG TIỆN ÍCH & TRỢ LÝ GIẢNG DẠY
-          </h2>
-          <p class="text-xs text-yellow-200">Thầy Hoàng Ngọc Tuyên • Năm học 2026 - 2027</p>
-        </div>
-
-      </div>
+    <!-- BANNER HÌNH ẢNH TOÀN DIỆN (TỶ LỆ CHUẨN 1920 x 250 PX) -->
+    <!-- Khi Thầy tự thiết kế banner trên Canva/Photoshop, chỉ cần lưu đè file vào: assets/images/banner.png là web tự động nhận ảnh mới! -->
+    <div class="w-full bg-[#701212] overflow-hidden flex items-center justify-center border-b border-red-900/60 shadow-sm">
+      <img 
+        id="main-school-banner" 
+        src="assets/images/banner.png" 
+        onerror="if (this.src.indexOf('banner.svg') === -1) { this.src='assets/images/banner.svg'; }" 
+        alt="Banner Cổng Chuyển Đổi Số Giáo Dục - THPT Ea H'leo" 
+        class="w-full max-h-[160px] sm:max-h-[210px] md:max-h-[250px] object-cover object-center select-none">
     </div>
 
     <!-- Main Navigation Bar (Đỏ tươi thương hiệu) -->
