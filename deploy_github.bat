@@ -2,7 +2,7 @@
 chcp 65001 >nul
 echo ========================================================
 echo   CÔNG CỤ TỰ ĐỘNG ĐẨY CODE LÊN GITHUB PAGES
-echo   Hệ Thống Tiện Ích Giáo Dục - THPT Ea H'leo
+echo   Hệ Thống Tiện Ích Giáo Dục - Thầy Hoàng Ngọc Tuyên
 echo ========================================================
 echo.
 
@@ -23,7 +23,7 @@ echo [2/4] Thêm toàn bộ mã nguồn và tệp tĩnh...
 git add .
 
 echo [3/4] Tạo bản ghi chú Commit...
-git commit -m "Cập nhật cổng tiện ích giáo dục THPT Ea H'leo - %date% %time%"
+git commit -m "Cập nhật portfolio giáo dục Thầy Hoàng Ngọc Tuyên - %date% %time%"
 
 echo [4/4] Đẩy mã nguồn lên GitHub...
 git remote remove origin 2>nul

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" width="100%" height="100%">
+  <defs>
+    <linearGradient id="i2s-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d16"/>
+      <stop offset="100%" stop-color="#1e1b4b"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="240" fill="url(#i2s-bg)"/>
+  
+  <!-- Purple Board MAX98357A -->
+  <rect x="50" y="45" width="150" height="150" rx="8" fill="#7c3aed" stroke="#6d28d9" stroke-width="2.5"/>
+  <rect x="100" y="95" width="50" height="50" rx="3" fill="#0f172a"/>
+  <text x="125" y="125" font-family="'Be Vietnam Pro', sans-serif" font-size="9" font-weight="bold" fill="#a78bfa" text-anchor="middle">MAX98357</text>
+  
+  <!-- Speaker -->
+  <g transform="translate(260, 60)">
+    <circle cx="55" cy="60" r="50" fill="#1e293b" stroke="#f59e0b" stroke-width="3"/>
+    <circle cx="55" cy="60" r="30" fill="#0f172a" stroke="#475569" stroke-width="2"/>
+    <circle cx="55" cy="60" r="14" fill="#f59e0b"/>
+    <!-- Sound Waves -->
+    <path d="M 115,40 A 30,30 0 0,1 115,80" fill="none" stroke="#38bdf8" stroke-width="3" stroke-linecap="round"/>
+    <path d="M 125,30 A 45,45 0 0,1 125,90" fill="none" stroke="#38bdf8" stroke-width="3" stroke-linecap="round"/>
+    <path d="M 135,20 A 60,60 0 0,1 135,100" fill="none" stroke="#38bdf8" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  
+  <!-- Audio Waveform -->
+  <path d="M 50,210 Q 70,185 90,210 T 130,210 T 170,195 T 210,225 T 250,210 T 290,190 T 330,220 T 370,210" fill="none" stroke="#a855f7" stroke-width="3"/>
+
+  <!-- Badge label -->
+  <rect x="20" y="14" width="200" height="24" rx="12" fill="#8b5cf6" stroke="#ffffff" stroke-width="1.5"/>
+  <text x="120" y="30" font-family="'Be Vietnam Pro', sans-serif" font-size="11" font-weight="900" fill="#ffffff" text-anchor="middle">ÂM THANH SỐ I2S ESP32</text>
+</svg>

@@ -1,12 +1,15 @@
-# CỔNG TIỆN ÍCH & HỆ THỐNG CHUYỂN ĐỔI SỐ GIÁO DỤC - THPT EA H'LEO
+# CỔNG TIỆN ÍCH & KHO HỌC LIỆU SỐ STEM - THẦY HOÀNG NGỌC TUYÊN
 
-> **Phiên bản 6.0 - Banner Chuẩn 1920 x 250 (Nền Đỏ Nhẹ, Chia 2 Bên Logo & Banner Nhỏ)**:
-> - **Kích thước Banner chuẩn 1920 x 250**: Chiều cao 250px trên máy tính và tự động co giãn thông minh trên điện thoại/máy tính bảng.
-> - **Nền đỏ nhẹ, tươi sáng**: Chuyển tông từ đỏ ruby sang đỏ cờ tươi sáng (`#aa1927` -> `#cb2636` -> `#dc3545`), kết hợp hiệu ứng vi mạch công nghệ mờ tinh tế.
-> - **Bố cục 2 phần độc lập**:
->   - *Bên trái*: Logo trường / Logo riêng của Thầy (File: `assets/images/header-logo.png`).
->   - *Bên phải*: Banner nhỏ công nghệ / Slogan giáo dục (File: `assets/images/sub-banner.png`).
-> - **Dải Slogan công nghệ**: *"🚀 ĐỔI MỚI SÁNG TẠO • ỨNG DỤNG CÔNG NGHỆ & AI • KHƠI MỞ ĐAM MÊ STEM • KIẾN TẠO TƯƠNG LAI"*.
+> **Phiên bản 7.0 - Website Cá Nhân & Kho Học Liệu Thực Chiến Chuẩn Năm Học 2026 - 2027**:
+> - **Nhận diện thương hiệu cá nhân**: Tối ưu 100% cho Thầy Hoàng Ngọc Tuyên (Giáo viên Tin học • Chuyên gia Chuyển đổi số & Đào tạo STEM).
+> - **Banner chuẩn 1920 x 250**: Nền đỏ nhẹ tươi sáng, một bên là Logo thương hiệu cá nhân HNT, một bên là Banner công nghệ & Slogan.
+> - **Kho học liệu số thực chiến**: Chuẩn hóa dựa trên giáo trình thực tế đã giảng dạy:
+>   1. *Module 1: Mô hình AI "Đại Sứ Xanh" phân loại rác Teachable Machine & Google Workspace*
+>   2. *Module 2: Điều khiển động cơ cầu H L298N & Kỹ thuật đóng gói hàm C++ trực quan*
+>   3. *Module 3: Trạm quan trắc nhiệt độ - độ ẩm LCD I2C & Hệ thống báo cháy tự động*
+>   4. *Module 4: Âm thanh số I2S ESP32 (MAX98357A) phát nhạc trực tuyến từ Internet*
+>   5. *Module 5: Thùng rác thông minh tự mở nắp (HC-SR04 + Servo)*
+>   6. *Module 6: Đèn giao thông thông minh & Ngắt phần cứng cho người đi bộ*
 > - **Bảng Quản Trị Admin**: Hỗ trợ đổi mật khẩu Admin PIN và xuất file `data.js` 1-click.
 
 ---
@@ -14,12 +17,12 @@
 ## 🏛️ BỐ CỤC 2 CỘT TINH GỌN
 
 ### 1. Cột bên trái (~30%):
-- **Thông tin tác giả**: Avatar, họ tên Thầy Hoàng Ngọc Tuyên, chuyên môn STEM & Tin học, trường THPT Ea H'leo.
+- **Thông tin tác giả**: Avatar, họ tên Thầy Hoàng Ngọc Tuyên, chuyên môn STEM & Tin học, Giáo dục số.
 - **Hộp kết nối đa kênh**: 4 nút lớn (Zalo, Facebook, YouTube, TikTok) và nút Hotline gọi điện thoại trực tiếp.
 - **Các lớp học đang tổ chức**:
-  1. *Lớp Kỹ năng số & Tin học ứng dụng*
-  2. *Lớp STEM Robotics & Lập trình Arduino*
-  3. *Lớp STEM IoT & Lập trình ESP32 nâng cao*
+  1. *Lớp Kỹ năng số & Công nghệ AI ứng dụng (Lộ trình 8 buổi thực chiến)*
+  2. *Lớp STEM Robotics & Nhập môn điện tử L298N*
+  3. *Lớp STEM IoT & Lập trình ESP32 nâng cao (12 buổi)*
   *(Mỗi lớp có hình ảnh minh họa, mục tiêu và nút "Đăng ký học" dẫn thẳng về link đăng ký Zalo/Form).*
 - **Nút "Bảng Quản Trị Admin"**: Bấm vào nhập mã PIN `admin123` để thêm mới.
 

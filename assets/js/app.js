@@ -1,5 +1,5 @@
 /**
- * APP LOGIC: TRƯỜNG THPT EA H'LEO
+ * APP LOGIC: THẦY HOÀNG NGỌC TUYÊN - PORTFOLIO & KHO HỌC LIỆU STEM
  * Bố cục 2 Cột: Cột trái (Tác giả + Các lớp học) | Cột phải (Công cụ + Kho học liệu)
  * Tính năng mở rộng: Bảng Quản Trị Admin thêm mới công cụ, lớp học, học liệu & xuất file data.js
  */
@@ -29,7 +29,7 @@ function renderProfile() {
   if (roleEl) roleEl.textContent = p.role;
 
   const schoolEl = document.getElementById('profile-school');
-  if (schoolEl) schoolEl.textContent = `${p.school} • ${p.dept}`;
+  if (schoolEl) schoolEl.textContent = p.title || p.role || 'Chuyên gia Chuyển đổi số & Đào tạo STEM';
 
   const bioEl = document.getElementById('profile-bio');
   if (bioEl) bioEl.textContent = p.bio;
@@ -40,7 +40,7 @@ function renderProfile() {
   setLinkHref('link-youtube', p.contacts.youtube);
   setLinkHref('link-tiktok', p.contacts.tiktok);
   setLinkHref('link-phone', p.contacts.phoneCall || `tel:${p.contacts.phone}`);
-  setLinkHref('link-school', p.contacts.schoolWeb);
+  setLinkHref('link-school', p.contacts.portfolioWeb || './');
 }
 
 function setLinkHref(elementId, url) {
@@ -307,7 +307,7 @@ function openDiagramModal(itemId) {
 
 // 7. BẢNG QUẢN TRỊ ADMIN (Thêm Lớp Học / Thêm Công Cụ / Thêm Học Liệu / Đổi Mật Khẩu & Xuất file data.js)
 function getAdminPin() {
-  return localStorage.getItem('THPT_EAHLEO_ADMIN_PIN') || PORTFOLIO_DATA.adminPin || 'admin123';
+  return localStorage.getItem('THAY_TUYEN_ADMIN_PIN') || localStorage.getItem('THPT_EAHLEO_ADMIN_PIN') || PORTFOLIO_DATA.adminPin || 'admin123';
 }
 
 function openAdminLogin() {
@@ -469,7 +469,7 @@ function submitChangePin(e) {
 
   // Cập nhật mật khẩu mới vào state & localStorage
   PORTFOLIO_DATA.adminPin = newPin;
-  localStorage.setItem('THPT_EAHLEO_ADMIN_PIN', newPin);
+  localStorage.setItem('THAY_TUYEN_ADMIN_PIN', newPin);
   saveLocalAdminData();
 
   // Reset form inputs
@@ -484,7 +484,7 @@ function submitChangePin(e) {
 // Xuất file data.js 1-Click để Thầy tải về và up lên GitHub
 function exportDataJsFile() {
   PORTFOLIO_DATA.adminPin = getAdminPin();
-  const content = '/**\n * PORTFOLIO DATA HUB - TRƯỜNG THPT EA H\'LEO\n * Cập nhật tự động từ Bảng Quản Trị Admin\n */\n\nconst PORTFOLIO_DATA = ' + JSON.stringify(PORTFOLIO_DATA, null, 2) + ';\n';
+  const content = '/**\n * PORTFOLIO DATA HUB - THẦY HOÀNG NGỌC TUYÊN\n * Cập nhật tự động từ Bảng Quản Trị Admin\n */\n\nconst PORTFOLIO_DATA = ' + JSON.stringify(PORTFOLIO_DATA, null, 2) + ';\n';
   const blob = new Blob([content], { type: 'application/javascript;charset=utf-8' });
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
@@ -500,24 +500,24 @@ function exportDataJsFile() {
 function saveLocalAdminData() {
   try {
     PORTFOLIO_DATA.adminPin = getAdminPin();
-    localStorage.setItem('THPT_EAHLEO_PORTFOLIO_DATA', JSON.stringify(PORTFOLIO_DATA));
+    localStorage.setItem('THAY_TUYEN_PORTFOLIO_DATA', JSON.stringify(PORTFOLIO_DATA));
   } catch (e) {}
 }
 
 function loadLocalAdminData() {
   try {
-    const savedPin = localStorage.getItem('THPT_EAHLEO_ADMIN_PIN');
+    const savedPin = localStorage.getItem('THAY_TUYEN_ADMIN_PIN') || localStorage.getItem('THPT_EAHLEO_ADMIN_PIN');
     if (savedPin) {
       PORTFOLIO_DATA.adminPin = savedPin;
     }
-    const saved = localStorage.getItem('THPT_EAHLEO_PORTFOLIO_DATA');
+    const saved = localStorage.getItem('THAY_TUYEN_PORTFOLIO_DATA') || localStorage.getItem('THPT_EAHLEO_PORTFOLIO_DATA');
     if (saved) {
       const parsed = JSON.parse(saved);
       if (parsed.systems && parsed.classes && parsed.studentLibrary) {
         Object.assign(PORTFOLIO_DATA, parsed);
         if (parsed.adminPin) {
           PORTFOLIO_DATA.adminPin = parsed.adminPin;
-          localStorage.setItem('THPT_EAHLEO_ADMIN_PIN', parsed.adminPin);
+          localStorage.setItem('THAY_TUYEN_ADMIN_PIN', parsed.adminPin);
         }
       }
     }
@@ -526,6 +526,8 @@ function loadLocalAdminData() {
 
 function resetAdminData() {
   if (confirm('Bạn có chắc chắn muốn đặt lại dữ liệu và mật khẩu về mặc định gốc?')) {
+    localStorage.removeItem('THAY_TUYEN_PORTFOLIO_DATA');
+    localStorage.removeItem('THAY_TUYEN_ADMIN_PIN');
     localStorage.removeItem('THPT_EAHLEO_PORTFOLIO_DATA');
     localStorage.removeItem('THPT_EAHLEO_ADMIN_PIN');
     location.reload();
