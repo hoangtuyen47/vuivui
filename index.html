@@ -77,26 +77,76 @@
       color: #ffffff !important;
     }
     .btn-primary-red:hover {
-      background-color: #a71d2a !important;
+      background-color: #b91c1c !important;
+    }
+    .header-banner-container {
+      width: 100%;
+      background: linear-gradient(90deg, #aa1927 0%, #be1e2d 28%, #cb2636 60%, #dc3545 100%) !important;
+      position: relative;
+      overflow: hidden;
+    }
+    .banner-inner-1920 {
+      width: 100%;
+      max-width: 1920px;
+      margin-left: auto;
+      margin-right: auto;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.5rem 1rem;
+      position: relative;
+      z-index: 10;
+    }
+    @media (min-width: 640px) {
+      .banner-inner-1920 { height: 165px; padding: 0.75rem 2rem; }
+    }
+    @media (min-width: 768px) {
+      .banner-inner-1920 { height: 200px; padding: 1rem 2.5rem; }
+    }
+    @media (min-width: 1024px) {
+      .banner-inner-1920 { height: 250px; padding: 1rem 3.5rem; }
     }
   </style>
 
-  <link rel="stylesheet" href="assets/css/style.css?v=5.0">
+  <link rel="stylesheet" href="assets/css/style.css?v=7.0">
 </head>
 
 <body class="bg-[#f8fafc] text-slate-800 font-sans antialiased min-h-screen flex flex-col">
 
   <!-- ========================================================================= -->
-  <!-- HEADER BANNER: HIỂN THỊ ĐẦY ĐỦ 100% TOÀN CẢNH KHÔNG BỊ CẮT XÉN -->
+  <!-- HEADER BANNER: KÍCH THƯỚC 1920 x 250 (NỀN ĐỎ NHẸ, MỘT BÊN LOGO - MỘT BÊN BANNER NHỎ) -->
   <!-- ========================================================================= -->
   <header class="w-full text-white shadow-xs">
-    <!-- Banner Container: Tự động co giãn theo tỷ lệ ảnh 3:1, không bị crop bất kỳ góc nào -->
-    <div class="w-full bg-[#f8fafc] overflow-hidden flex items-center justify-center border-b border-red-200">
-      <img 
-        id="main-school-banner" 
-        src="assets/images/banner.png" 
-        alt="Banner Chuyển Đổi Số Giáo Dục - THPT Ea H'leo" 
-        class="w-full h-auto block select-none shadow-xs">
+    <!-- Banner Container 1920 x 250 với nền đỏ nhẹ tươi sáng & họa tiết công nghệ tinh tế -->
+    <div class="header-banner-container border-b border-red-300/40 relative">
+      <!-- Lớp phủ họa tiết trang trí vi mạch & quầng sáng mềm -->
+      <div class="banner-decor-overlay"></div>
+
+      <!-- Khung hiển thị tỉ lệ chuẩn 1920 x 250 (tự co giãn thông minh trên di động/máy tính) -->
+      <div class="banner-inner-1920">
+        <!-- BÊN TRÁI: LOGO TRƯỜNG / THƯƠNG HIỆU (Thầy tự upload file: assets/images/header-logo.png) -->
+        <div class="flex items-center h-full max-w-[48%] shrink-0">
+          <a href="./" title="Cổng Chuyển Đổi Số Giáo Dục - THPT Ea H'leo" class="h-full flex items-center">
+            <img 
+              id="header-left-logo" 
+              src="assets/images/header-logo.png" 
+              onerror="this.onerror=null; this.src='assets/images/header-logo.svg';"
+              alt="Logo Trường THPT Ea H'leo" 
+              class="h-auto max-h-[105px] sm:max-h-[145px] md:max-h-[185px] lg:max-h-[225px] w-auto max-w-full object-contain drop-shadow-md select-none transition-transform hover:scale-[1.02] duration-300">
+          </a>
+        </div>
+
+        <!-- BÊN PHẢI: BANNER NHỎ / SLOGAN CÔNG NGHỆ & STEM (Thầy tự upload file: assets/images/sub-banner.png) -->
+        <div class="flex items-center justify-end h-full max-w-[50%] shrink-0">
+          <img 
+            id="header-right-banner" 
+            src="assets/images/sub-banner.png" 
+            onerror="this.onerror=null; this.src='assets/images/sub-banner.svg';"
+            alt="Banner Đổi Mới Sáng Tạo &amp; STEM" 
+            class="h-auto max-h-[105px] sm:max-h-[145px] md:max-h-[185px] lg:max-h-[225px] w-auto max-w-full object-contain drop-shadow-md select-none transition-transform hover:scale-[1.02] duration-300">
+        </div>
+      </div>
     </div>
 
     <!-- Thanh Slogan Nền Đỏ: Khơi Dậy Tinh Thần Ứng Dụng Công Nghệ & AI -->
@@ -574,7 +624,7 @@
   <div id="toast-container"></div>
 
   <!-- Scripts with cache busters -->
-  <script src="assets/js/data.js?v=6.0"></script>
-  <script src="assets/js/app.js?v=6.0"></script>
+  <script src="assets/js/data.js?v=7.0"></script>
+  <script src="assets/js/app.js?v=7.0"></script>
 </body>
 </html>

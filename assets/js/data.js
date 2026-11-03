@@ -7,6 +7,14 @@ const PORTFOLIO_DATA = {
   // Cấu hình bảo mật Admin (Thầy có thể đổi trong giao diện hoặc đổi trực tiếp tại đây)
   adminPin: "admin123",
 
+  // Cấu hình Banner 1920 x 250 (Một bên logo, một bên banner nhỏ)
+  banner: {
+    logoImage: "assets/images/header-logo.png",
+    subBannerImage: "assets/images/sub-banner.png",
+    heightDesktop: 250,
+    widthMax: 1920
+  },
+
   // Thông tin tác giả & Giáo viên
   profile: {
     fullName: "Thầy Hoàng Ngọc Tuyên",

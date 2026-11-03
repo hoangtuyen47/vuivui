@@ -1,10 +1,13 @@
 # CỔNG TIỆN ÍCH & HỆ THỐNG CHUYỂN ĐỔI SỐ GIÁO DỤC - THPT EA H'LEO
 
-> **Phiên bản 5.0 - Tinh gọn, Chuyên nghiệp & Tích hợp Bảng Quản Trị Admin**:
-> - **Banner AI toàn cảnh 100%**: Co giãn tự nhiên theo tỉ lệ gốc 3:1, không bị cắt xén bất kỳ góc nào.
-> - **Dải Slogan công nghệ nền đỏ**: *"🚀 ĐỔI MỚI SÁNG TẠO • ỨNG DỤNG CÔNG NGHỆ & AI • KHƠI MỞ ĐAM MÊ STEM • KIẾN TẠO TƯƠNG LAI"*.
-> - **Đa kênh kết nối**: Zalo, Facebook, YouTube, TikTok, Hotline bấm gọi ngay.
-> - **Bảng Quản Trị Admin (Mã PIN: `admin123`)**: Cho phép Thầy thêm nhanh công cụ, lớp học, học liệu và xuất file `data.js` 1-click để tải lên GitHub mà không cần viết code.
+> **Phiên bản 6.0 - Banner Chuẩn 1920 x 250 (Nền Đỏ Nhẹ, Chia 2 Bên Logo & Banner Nhỏ)**:
+> - **Kích thước Banner chuẩn 1920 x 250**: Chiều cao 250px trên máy tính và tự động co giãn thông minh trên điện thoại/máy tính bảng.
+> - **Nền đỏ nhẹ, tươi sáng**: Chuyển tông từ đỏ ruby sang đỏ cờ tươi sáng (`#aa1927` -> `#cb2636` -> `#dc3545`), kết hợp hiệu ứng vi mạch công nghệ mờ tinh tế.
+> - **Bố cục 2 phần độc lập**:
+>   - *Bên trái*: Logo trường / Logo riêng của Thầy (File: `assets/images/header-logo.png`).
+>   - *Bên phải*: Banner nhỏ công nghệ / Slogan giáo dục (File: `assets/images/sub-banner.png`).
+> - **Dải Slogan công nghệ**: *"🚀 ĐỔI MỚI SÁNG TẠO • ỨNG DỤNG CÔNG NGHỆ & AI • KHƠI MỞ ĐAM MÊ STEM • KIẾN TẠO TƯƠNG LAI"*.
+> - **Bảng Quản Trị Admin**: Hỗ trợ đổi mật khẩu Admin PIN và xuất file `data.js` 1-click.
 
 ---
 

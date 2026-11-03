@@ -6,8 +6,10 @@
 
 :root {
   --primary-red: #c82333;
-  --dark-red: #8e1818;
-  --hover-red: #a71d2a;
+  --dark-red: #991b1b;
+  --hover-red: #b91c1c;
+  --light-red: #dc2626;
+  --soft-red-bg: #fff1f2;
   --bg-page: #f8fafc;
   --bg-card: #ffffff;
   --border-light: #e2e8f0;
@@ -108,13 +110,70 @@ body {
   box-shadow: 0 8px 24px rgba(200, 35, 51, 0.12);
 }
 
-/* Red Banner & Nav Gradients */
+/* ==========================================================================
+   HEADER BANNER 1920 x 250 (Đúng kích thước, nền đỏ nhẹ, chia 2 bên)
+   ========================================================================== */
+.header-banner-container {
+  width: 100%;
+  background: linear-gradient(90deg, #aa1927 0%, #be1e2d 28%, #cb2636 60%, #dc3545 100%) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.banner-decor-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: 
+    radial-gradient(circle at 15% 50%, rgba(255, 255, 255, 0.12) 0%, transparent 45%),
+    radial-gradient(circle at 85% 50%, rgba(255, 255, 255, 0.10) 0%, transparent 45%),
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 24px 24px, 24px 24px;
+}
+
+.banner-inner-1920 {
+  width: 100%;
+  max-width: 1920px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  position: relative;
+  z-index: 10;
+}
+
+@media (min-width: 640px) {
+  .banner-inner-1920 {
+    height: 165px;
+    padding: 0.75rem 2rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .banner-inner-1920 {
+    height: 200px;
+    padding: 1rem 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .banner-inner-1920 {
+    height: 250px;
+    padding: 1rem 3.5rem;
+  }
+}
+
+/* Red Banner & Nav Gradients (Đỏ nhẹ, thanh lịch & tươi sáng hơn) */
 .school-banner-gradient {
-  background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 45%, #b91c1c 80%, #dc2626 100%) !important;
+  background: linear-gradient(135deg, #991b1b 0%, #b91c1c 40%, #c82333 75%, #dc2626 100%) !important;
 }
 
 .school-nav-gradient {
-  background: linear-gradient(90deg, #b91c1c 0%, #c82333 50%, #dc2626 100%) !important;
+  background: linear-gradient(90deg, #991622 0%, #b31d27 40%, #c52433 80%, #d32f2f 100%) !important;
 }
 
 /* Tool Image Thumbnail */
